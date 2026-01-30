@@ -1,0 +1,13 @@
+ لجلب اسعار الذهب بشكل لحظي وفعال ومباشر 
+
+https://api.metals.live/v1/spot
+
+https://api.gold-api.com/price/XAU
+
+
+
+سعر الدولار مقابل الجنيه المصري 
+
+https://api.exchangerate.host/latest?base=USD&symbols=EGP
+
+

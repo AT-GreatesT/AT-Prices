@@ -1,0 +1,175 @@
+/* ===== Reset & Global ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #f9fafb;
+    color: #1f2933;
+    line-height: 1.6;
+    text-align: center; /* توسيط النصوص افتراضياً */
+}
+
+/* ===== Header ===== */
+.header {
+    padding: 25px 10px;
+    background: #fff;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.header .ar {
+    font-size: 32px;
+    font-weight: 800;
+    color: #facc15; /* اللون الأصفر الذهبي */
+    display: block;
+}
+
+.header .en {
+    font-size: 14px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== Intro Text ===== */
+.intro-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.intro-text {
+    font-size: 16px;
+    color: #4b5563;
+    font-weight: 600;
+}
+
+/* ===== Navigation Chips ===== */
+.nav-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 15px;
+    position: sticky; /* جعل القائمة تلتصق بالأعلى عند التمرير */
+    top: 0;
+    background: #f9fafb;
+    z-index: 100;
+}
+
+.nav-chips a {
+    background: #22c55e; /* اللون الأخضر الأصلي */
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+/* تمييز القسم النشط */
+.nav-chips a.active {
+    background: #fde047 !important; /* يتحول للأصفر */
+    color: #1f2933 !important;
+    border-color: #facc15;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== Cards (الصفحة الرئيسية) ===== */
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #fde047; /* اللون الأصفر الأصلي */
+    padding: 18px 22px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1f2933;
+    font-weight: 800;
+    border: 2px solid #facc15;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    background: #fcd34d;
+}
+
+.card h3 { margin: 0; font-size: 19px; }
+.card p { margin-top: 5px; font-size: 17px; color: #16a34a; }
+.card span { font-size: 24px; color: #1f2933; }
+
+/* ===== Sections Visibility ===== */
+.page-section {
+    display: none; /* مخفي بشكل افتراضي */
+    padding: 20px 10px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.page-section.active {
+    display: block; /* يظهر فقط عند إضافة class active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== Tables (التصميم الأصلي) ===== */
+.page-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fde047;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 2px solid #facc15;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-weight: bold;
+    text-align: right;
+}
+
+table td:last-child {
+    text-align: left;
+    color: #16a34a; /* السعر بالأخضر للوضوح */
+}
+
+/* ===== Footer ===== */
+.footer {
+    margin-top: 40px;
+    padding: 25px;
+    background: #fff;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .header .ar { font-size: 26px; }
+    .nav-chips a { padding: 6px 12px; font-size: 12px; }
+}
+

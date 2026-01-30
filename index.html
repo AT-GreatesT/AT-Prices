@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>AT Prices | أسعار الأسواق لحظيًا</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <h1>
+        <span class="ar">أسعار AT</span>
+        <span class="en">AT Prices</span>
+    </h1>
+</header>
+
+<div class="intro-container">
+    <p class="intro-text">
+        منصة متخصصة في عرض الأسعار اللحظية للذهب، الفضة، النفط، المعادن، العملات الرقمية، أسعار الصرف، أزواج العملات، ومؤشرات الأسهم بواجهة سهلة وسريعة.
+    </p>
+</div>
+
+<nav class="nav-chips">
+    <a data-section="home" class="active">الرئيسية</a>
+    <a data-section="gold">الذهب</a>
+    <a data-section="silver">الفضة</a>
+    <a data-section="oil">النفط</a>
+    <a data-section="metals">المعادن</a>
+    <a data-section="crypto">العملات الرقمية</a>
+    <a data-section="fx">أسعار الصرف</a>
+    <a data-section="pairs">أزواج العملات</a>
+    <a data-section="stocks">مؤشرات الأسهم</a>
+</nav>
+
+<main id="content">
+
+    <section id="home" class="page-section active">
+        <div class="cards">
+            <div class="card" data-section="gold"><div><h3>الذهب</h3><p id="goldHome">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="silver"><div><h3>الفضة</h3><p id="silverHome">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="oil"><div><h3>النفط</h3><p id="oilHome">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="metals"><div><h3>المعادن</h3><p id="metalsHome">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="crypto"><div><h3>العملات الرقمية</h3><p id="cryptoHome">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="fx"><div><h3>أسعار الصرف</h3><p id="fxHome">---</p></div><span>➜</span></div>
+            <div class="card" data-section="pairs"><div><h3>أزواج العملات</h3><p id="pairsHome">---</p></div><span>➜</span></div>
+            <div class="card" data-section="stocks"><div><h3>مؤشرات الأسهم</h3><p id="stocksHome">$---</p></div><span>➜</span></div>
+        </div>
+    </section>
+
+    <section id="gold" class="page-section">
+        <div class="page-container">
+            <h2>أسعار الذهب اللحظية</h2>
+            <table>
+                <tr><td>السعر الفوري (USD)</td><td id="goldSpot">$---</td></tr>
+                <tr><td>العقود الآجلة (USD)</td><td id="goldFuture">$---</td></tr>
+                <tr><td>جرام الذهب (USD)</td><td id="goldGramUSD">$---</td></tr>
+                <tr><td>جرام الذهب (EGP)</td><td id="goldGramEGP">---</td></tr>
+                <tr><td>عيار 24 (EGP)</td><td id="g24">---</td></tr>
+                <tr><td>عيار 21 (EGP)</td><td id="g21">---</td></tr>
+                <tr><td>عيار 18 (EGP)</td><td id="g18">---</td></tr>
+                <tr><td>سعر الجنيه الذهب (EGP)</td><td id="goldPound">---</td></tr>
+                <tr><td>دولار الصاغة (EGP)</td><td id="goldDollar">---</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="silver" class="page-section">
+        <div class="page-container">
+            <h2>أسعار الفضة اللحظية</h2>
+            <table>
+                <tr><td>الأونصة عالمياً (USD)</td><td id="silverSpot">$---</td></tr>
+                <tr><td>جرام الفضة عيار 999 (EGP)</td><td id="silverGramEGP">---</td></tr>
+                <tr><td>جرام الفضة عيار 925 (EGP)</td><td id="silver925">---</td></tr>
+                <tr><td>سعر الدولار المستخدم</td><td id="silverDollar">---</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="oil" class="page-section">
+        <div class="page-container">
+            <h2>أسعار النفط اللحظية</h2>
+            <table>
+                <tr><td>خام برنت (USD)</td><td id="oilSpot">$---</td></tr>
+                <tr><td>خام غرب تكساس (USD)</td><td id="oilWTI">$---</td></tr>
+                <tr><td>البرميل بالجنيه (EGP)</td><td id="oilEGP">---</td></tr>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="metals" class="page-section">
+        <div class="page-container">
+            <h2>أسعار المعادن اللحظية</h2>
+            <table>
+                <tr><td>النحاس (Copper)</td><td id="copperHome">---</td></tr>
+                <tr><td>البلاتين (Platinum)</td><td id="platinumHome">---</td></tr>
+                <tr><td>البالاديوم (Palladium)</td><td id="palladiumHome">---</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="crypto" class="page-section">
+        <div class="page-container">
+            <h2>أهم 10 عملات رقمية (USD)</h2>
+            <table>
+                <thead>
+                    <tr><td>العُملة</td><td>السعر (USD)</td></tr>
+                </thead>
+                <tbody id="cryptoTableBody">
+                    <tr><td>بتكوين (BTC)</td><td id="btcSpot">$---</td></tr>
+                    <tr><td>إيثيريوم (ETH)</td><td id="ethSpot">$---</td></tr>
+                    <tr><td>سولانا (SOL)</td><td id="solSpot">$---</td></tr>
+                    <tr><td>بينانس (BNB)</td><td id="bnbSpot">$---</td></tr>
+                    <tr><td>ريبل (XRP)</td><td id="xrpSpot">$---</td></tr>
+                    <tr><td>كاردانو (ADA)</td><td id="adaSpot">$---</td></tr>
+                    <tr><td>دوج كوين (DOGE)</td><td id="dogeSpot">$---</td></tr>
+                    <tr><td>ترون (TRX)</td><td id="trxSpot">$---</td></tr>
+                    <tr><td>دوت (DOT)</td><td id="dotSpot">$---</td></tr>
+                    <tr><td>لينك (LINK)</td><td id="linkSpot">$---</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <section id="fx" class="page-section">
+        <div class="page-container">
+            <h2>أسعار الصرف (مقابل الجنيه المصري)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>العملة</td>
+                        <td>السعر الرسمي (البنك)</td>
+                        <td>السوق الموازية (تطبيقي)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الدولار الأمريكي (USD)</td>
+                        <td id="fxSpot">---</td>
+                        <td id="blackUSD" class="highlight">---</td>
+                    </tr>
+                    <tr>
+                        <td>اليورو (EUR)</td>
+                        <td id="eurSpot">---</td>
+                        <td id="blackEUR">---</td>
+                    </tr>
+                    <tr>
+                        <td>الريال السعودي (SAR)</td>
+                        <td id="sarSpot">---</td>
+                        <td id="blackSAR">---</td>
+                    </tr>
+                    <tr>
+                        <td>الدرهم الإماراتي (AED)</td>
+                        <td id="aedSpot">---</td>
+                        <td id="blackAED">---</td>
+                    </tr>
+                    <tr>
+                        <td>الدينار الكويتي (KWD)</td>
+                        <td id="kwdSpot">---</td>
+                        <td id="blackKWD">---</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 11px; color: #6b7280; margin-top: 10px;">* يتم حساب السوق الموازية بناءً على تسعير Binance P2P وكروس العملات.</p>
+        </div>
+    </section>
+
+
+    <section id="pairs" class="page-section">
+        <div class="page-container">
+            <h2>أهم 10 أزواج عملات عالمية</h2>
+            <table>
+                <thead>
+                    <tr><td>الزوج</td><td>السعر اللحظي</td></tr>
+                </thead>
+                <tbody id="pairsTableBody">
+                    <tr><td>EUR / USD</td><td id="eurusd">---</td></tr>
+                    <tr><td>GBP / USD</td><td id="gbpusd">---</td></tr>
+                    <tr><td>USD / JPY</td><td id="usdjpy">---</td></tr>
+                    <tr><td>USD / CHF</td><td id="usdchf">---</td></tr>
+                    <tr><td>AUD / USD</td><td id="audusd">---</td></tr>
+                    <tr><td>USD / CAD</td><td id="usdcad">---</td></tr>
+                    <tr><td>NZD / USD</td><td id="nzdusd">---</td></tr>
+                    <tr><td>EUR / GBP</td><td id="eurgbp">---</td></tr>
+                    <tr><td>EUR / JPY</td><td id="eurjpy">---</td></tr>
+                    <tr><td>GBP / JPY</td><td id="gbpjpy">---</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="stocks" class="page-section">
+        <div class="page-container">
+            <h2>مؤشرات الأسهم العالمية والمحلية</h2>
+            <table>
+                <thead>
+                    <tr><td>المؤشر</td><td>الدولة</td><td>القيمة</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>S&P 500</td><td>أمريكا</td><td id="sp500">---</td></tr>
+                    <tr><td>Nasdaq 100</td><td>أمريكا</td><td id="nasdaq">---</td></tr>
+                    <tr><td>FTSE 100</td><td>لندن</td><td id="ftse">---</td></tr>
+                    <tr><td>Nikkei 225</td><td>اليابان</td><td id="nikkei">---</td></tr>
+                    <tr><td>Shanghai</td><td>الصين</td><td id="shanghai">---</td></tr>
+                    <tr><td>TASI</td><td>السعودية</td><td id="tasi">---</td></tr>
+                    <tr><td>ADX / DFM</td><td>الإمارات</td><td id="uae_index">---</td></tr>
+                    <tr><td>EGX 30</td><td>مصر</td><td id="egx30">---</td></tr>
+                    <tr><td>EGX 70</td><td>مصر</td><td id="egx70">---</td></tr>
+                    <tr><td>EGX 100</td><td>مصر</td><td id="egx100">---</td></tr>
+                    <tr><td>EGX 33 Shariah</td><td>مصر</td><td id="egx33">---</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    © جميع الحقوق محفوظة لدى AT Prices 2026
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
