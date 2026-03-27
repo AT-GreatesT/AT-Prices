@@ -27,7 +27,8 @@
     <span class="emoji">💹</span> العملات الرقمية، 
     <span class="emoji">💱</span> أسعار الصرف، 
     <span class="emoji">🔗</span> أزواج العملات، 
-    <span class="emoji">📈</span> مؤشرات الأسهم  
+    <span class="emoji">📈</span> مؤشرات الأسهم ،
+    <span class="emoji">⛽</span> البنزين والسولار
     بواجهة سهلة وسريعة.
   </p>
 </div>
@@ -43,6 +44,7 @@
     <a data-section="fx">أسعار الصرف</a>
     <a data-section="pairs">أزواج العملات</a>
     <a data-section="stocks">مؤشرات الأسهم</a>
+    <a data-section="fuel">البنزين والسولار</a>
 </nav>
 
 <main id="content">
@@ -57,6 +59,7 @@
             <div class="card" data-section="fx"><div><h3>أسعار الصرف</h3><p id="fxHome">---</p></div><span>➜</span></div>
             <div class="card" data-section="pairs"><div><h3>أزواج العملات</h3><p id="eurusd">---</p></div><span>➜</span></div>
             <div class="card" data-section="stocks"><div><h3>مؤشرات الأسهم</h3><p id="sp500">$---</p></div><span>➜</span></div>
+            <div class="card" data-section="fuel"><div><h3>البنزين والسولار</h3><p id="gas92">--- ج.م</p></div><span>➜</span></div>
         </div>
     </section>
 
@@ -221,8 +224,50 @@
                     <tr><td>TASI</td><td>السعودية</td><td id="tasi">---</td></tr>
                     <tr><td>ADX / DFM</td><td>الإمارات</td><td id="uae_index">---</td></tr>
                     <tr><td>EGX 30</td><td>مصر</td><td id="egx30">---</td></tr>
+                    <tr><td>EGX 70</td><td>مصر</td><td id="egx70">---</td></tr>
+                    <tr><td>EGX 100</td><td>مصر</td><td id="egx100">---</td></tr>
+                    <tr><td>EGX 33 Shariah</td><td>مصر</td><td id="egx33">---</td></tr>
                 </tbody>
             </table>
+        </div>
+    </section>
+
+    <section id="fuel" class="page-section">
+        <div class="page-container">
+            <h2>أسعار الوقود في مصر (لتر)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>نوع الوقود</td>
+                        <td>السعر الرسمي</td>
+                    </tr>
+                </thead>
+                <tbody id="fuelTableBody">
+                    <tr>
+                        <td>بنزين 95</td>
+                        <td id="gas95">--- ج.م</td>
+                    </tr>
+                    <tr>
+                        <td>بنزين 92</td>
+                        <td id="gas92">--- ج.م</td>
+                    </tr>
+                    <tr>
+                        <td>بنزين 80</td>
+                        <td id="gas80">--- ج.م</td>
+                    </tr>
+                    <tr>
+                        <td>السولار</td>
+                        <td id="diesel">--- ج.م</td>
+                    </tr>
+                    <tr>
+                        <td>الكيروسين (الجاز)</td>
+                        <td id="kerosene">--- ج.م</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 10px; text-align: center;">
+                * الأسعار الموضحة هي الأسعار الرسمية المعلنة في جمهورية مصر العربية.
+            </p>
         </div>
     </section>
 
@@ -235,6 +280,5 @@
 <script src="js/script.js"></script>
 </body>
 </html>
-
 
 

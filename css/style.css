@@ -220,3 +220,17 @@ header.header {
     color: #ffcc00; /* تمييز AT */
 }
 
+
+/* ===== Fuel Specific Colors (تلوين أنواع الوقود) ===== */
+#gas95 { color: #e11d48 !important; font-weight: 900; } /* أحمر غامق لبنزين 95 */
+#gas92 { color: #16a34a !important; font-weight: 900; } /* أخضر لبنزين 92 */
+#gas80 { color: #ea580c !important; font-weight: 900; } /* برتقالي لبنزين 80 */
+#diesel { color: #2563eb !important; font-weight: 900; } /* أزرق للسولار */
+
+/* تحسين شكل الكارت عند الضغط عليه */
+.card[data-section="fuel"] {
+    background: linear-gradient(135deg, #fde047, #facc15);
+    border-left: 5px solid #ea580c; /* تمييز كارت الوقود بلون مختلف */
+}
+
+
