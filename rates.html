@@ -406,7 +406,7 @@
           const icon = this.querySelector("i");
           icon.classList.add("fa-spin");
           if (window.RatesPage && window.RatesPage.loadRatesData) {
-            window.RatesPage.loadRatesData().then(() => {
+            window.RatesPage.loadRatesData(true).then(() => {
               setTimeout(() => icon.classList.remove("fa-spin"), 500);
             });
           } else {

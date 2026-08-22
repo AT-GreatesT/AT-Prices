@@ -3,6 +3,10 @@
 
 import CONFIG from '../config.js';
 
+const DATA_CACHE_KEY = 'at-financial-data';
+const DATA_CACHE_TTL = 30 * 1000;
+let marketDataPromise = null;
+
 function parseJSONField(value, fallback) {
     if (value == null || value === '') return fallback;
     if (typeof value !== 'string') return value;
@@ -93,25 +97,61 @@ async function fetchAPI(endpoint = '', options = {}) {
  * جلب البيانات الرئيسية للتطبيق
  * @returns {Promise<Object>} - البيانات الكاملة
  */
-async function fetchAppData() {
-    const result = await fetchAPI();
-    if (result.success) {
-        return normalizeMarketData(result.data);
+async function fetchAppData(forceRefresh = false) {
+    if (!forceRefresh) {
+        const cached = readCachedData();
+        if (cached) return cached;
+        if (marketDataPromise) return marketDataPromise;
     }
-    throw new Error(result.error);
+
+    marketDataPromise = fetchAPI(forceRefresh ? '?t=' + Date.now() : '').then(result => {
+        if (!result.success) throw new Error(result.error);
+        const data = normalizeMarketData(result.data);
+        writeCachedData(data);
+        return data;
+    }).finally(() => {
+        marketDataPromise = null;
+    });
+
+    return marketDataPromise;
+}
+
+function readCachedData() {
+    try {
+        const cached = JSON.parse(sessionStorage.getItem(DATA_CACHE_KEY) || 'null');
+        if (cached && Date.now() - cached.timestamp < DATA_CACHE_TTL) return cached.data;
+    } catch {
+        return null;
+    }
+    return null;
+}
+
+function writeCachedData(data) {
+    try {
+        sessionStorage.setItem(DATA_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data }));
+    } catch {
+        // التخزين اختياري، ولا يجب أن يمنع عرض البيانات.
+    }
+}
+
+async function fetchMarketData(forceRefresh = false) {
+    return fetchAppData(forceRefresh);
+}
+
+async function loadAppData(forceRefresh = false) {
+    const data = await fetchMarketData(forceRefresh);
+    window.AT = window.AT || {};
+    window.AT.appData = data;
+    window.AT.loadAppData = loadAppData;
+    document.dispatchEvent(new CustomEvent('dataLoaded', { detail: data }));
+    return data;
 }
 
 /**
- * تحديث البيانات وجلبها مرة أخرى
- * @returns {Promise<Object>} - البيانات المحدثة
+ * تحديث البيانات وتجاوز الكاش المحلي.
  */
 async function refreshData() {
-    // إضافة معلمة لتجنب الكاش
-    const result = await fetchAPI('?t=' + Date.now());
-    if (result.success) {
-        return normalizeMarketData(result.data);
-    }
-    throw new Error(result.error);
+    return fetchAppData(true);
 }
 
 /**
@@ -124,18 +164,6 @@ async function fetchSpecificData(key) {
     return data[key] || null;
 }
 
-async function fetchMarketData() {
-    return fetchAppData();
-}
-
-async function loadAppData() {
-    const data = await fetchMarketData();
-    window.AT = window.AT || {};
-    window.AT.appData = data;
-    window.AT.loadAppData = loadAppData;
-    document.dispatchEvent(new CustomEvent('dataLoaded', { detail: data }));
-    return data;
-}
 
 /**
  * فحص اتصال API

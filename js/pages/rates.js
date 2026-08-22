@@ -1,5 +1,5 @@
 import CONFIG from '../config.js';
-import { fetchMarketData } from '../modules/api.js';
+import { fetchMarketData, refreshData } from '../modules/api.js';
 
 let ratesData = {};
 let refreshTimer;
@@ -78,7 +78,7 @@ function renderAnalysis() {
   const container = document.getElementById('ratesAnalysis');
   if (!container) return;
 
-  const analysis = ratesData.analysis || 'لا يوجد تحليل ذكي حقيقي من الخادم حاليًا.';
+  const analysis = getRateAnalysis();
   const updatedAt = ratesData.updatedAt
     ? new Date(ratesData.updatedAt).toLocaleString('ar-EG')
     : 'غير متاح';
@@ -97,6 +97,51 @@ function renderAnalysis() {
       <div class="ai-analysis-meta"><span>آخر تحديث: ${escapeHTML(updatedAt)}</span><span>لا يتم تعديل الأرقام بواسطة الذكاء الاصطناعي</span></div>
       <div class="ai-sources"><h4>مصادر البيانات</h4><ul>${sources}</ul></div>
     </article>`;
+}
+
+function getRateAnalysis() {
+  const readings = countries
+    .map(country => ({ country, value: parseFloat(rateValue(country.key)) }))
+    .filter(item => Number.isFinite(item.value));
+  const serverAnalysis = extractAnalysisText(ratesData.analysis);
+  const hasUsefulServerAnalysis = serverAnalysis
+    && !/HTTP\s*429|لا يوجد تحليل|غير متاح/i.test(String(serverAnalysis));
+
+  if (hasUsefulServerAnalysis) return String(serverAnalysis);
+  if (!readings.length) return 'لا تتوفر قراءات رقمية كافية لإعداد تحليل موثوق.';
+
+  const highest = readings.reduce((first, item) => item.value > first.value ? item : first);
+  const lowest = readings.reduce((first, item) => item.value < first.value ? item : first);
+  const average = readings.reduce((sum, item) => sum + item.value, 0) / readings.length;
+  const spread = highest.value - lowest.value;
+  const direction = spread >= 2
+    ? `يوجد تفاوت واضح بين الدول؛ أعلى قراءة في ${highest.country.name} (${highest.value}%) وأدنى قراءة في ${lowest.country.name} (${lowest.value}%).`
+    : `القراءات متقاربة نسبيًا حول متوسط ${average.toFixed(2)}%.`;
+  const recommendation = average >= 5
+    ? 'التوصية: الحفاظ على سياسة نقدية حذرة، ومراقبة التضخم قبل التفكير في خفض الفائدة.'
+    : average >= 3
+      ? 'التوصية: التريث في قرارات الخفض أو الرفع، ومتابعة التضخم والنمو معًا قبل اتخاذ قرار.'
+      : 'التوصية: قد تسمح القراءات المنخفضة بمرونة أكبر أو خفض تدريجي، بشرط استقرار التضخم وسعر الصرف.';
+
+  return `تحليل مبني على الأرقام المتاحة: متوسط أسعار الفائدة ${average.toFixed(2)}% عبر ${readings.length} دول. ${direction} ${recommendation}`;
+}
+
+function extractAnalysisText(value) {
+  if (typeof value === 'string') return value.trim();
+  if (!value || typeof value !== 'object') return '';
+  if (typeof value.output_text === 'string') return value.output_text.trim();
+  if (Array.isArray(value.steps)) {
+    return value.steps
+      .flatMap(step => Array.isArray(step.content) ? step.content : [])
+      .filter(item => item?.type === 'text')
+      .map(item => item.text || '')
+      .join('')
+      .trim();
+  }
+  if (Array.isArray(value.candidates)) {
+    return value.candidates[0]?.content?.parts?.map(part => part.text || '').join('').trim() || '';
+  }
+  return '';
 }
 
 function renderComparison() {
@@ -149,11 +194,13 @@ function setupSectionSidebar() {
   });
 }
 
-async function loadRatesData() {
+async function loadRatesData(forceRefresh = false) {
   try {
     const sharedData = window.AT?.appData;
     const sharedRates = parseRateData(sharedData?.ratesData);
-    const data = hasRateData(sharedRates) ? sharedData : await fetchMarketData();
+    const data = hasRateData(sharedRates) && !forceRefresh
+      ? sharedData
+      : await (forceRefresh ? refreshData() : fetchMarketData());
     ratesData = parseRateData(data.ratesData ?? data.rates);
     window.AT = window.AT || {};
     window.AT.appData = data;

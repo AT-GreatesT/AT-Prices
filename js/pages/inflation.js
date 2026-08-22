@@ -1,4 +1,5 @@
 import CONFIG from '../config.js';
+import { fetchMarketData, refreshData } from '../modules/api.js';
 
 const REFRESH_INTERVAL = 120000;
 const COUNTRIES = {
@@ -57,7 +58,7 @@ function showInflationSection(sectionId, resetScroll = true) {
     }
 }
 
-async function loadInflationData() {
+async function loadInflationData(forceRefresh = false) {
     try {
         const localData = window.AT?.appData?.inflationData;
         const localInflation = normalizeData(localData);
@@ -67,11 +68,7 @@ async function loadInflationData() {
             return;
         }
 
-        const response = await fetch(`${CONFIG.API_URL}?t=${Date.now()}`, {
-            headers: { 'X-My-App-Auth': CONFIG.API_SECRET_KEY, Accept: 'application/json' }
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
+        const data = await (forceRefresh ? refreshData() : fetchMarketData());
         inflationData = await fillAnnualFallback(normalizeData(data.inflationData ?? data.inflation ?? data));
         if (!hasInflationData(inflationData)) throw new Error('Inflation data is empty');
         renderInflation();

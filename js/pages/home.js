@@ -29,7 +29,9 @@ function normalizeInflation(value) {
     const item = data[key] || {};
     return [key, {
       ...item,
-      current: item.current ?? item.annual ?? item.yearOverYear ?? '—'
+      current: isMissingInflationValue(item.current)
+        ? (item.annual ?? item.yearOverYear ?? '—')
+        : item.current
     }];
   }));
 }
@@ -139,7 +141,7 @@ async function fillAnnualInflationFallback(value) {
   const codes = { US: 'USA', EG: 'EGY', SA: 'SAU', EU: 'EMU' };
   const missing = Object.keys(codes).filter(key => {
     const item = data[key] || {};
-    return item.annual == null && item.current == null;
+    return isMissingInflationValue(item.annual) && isMissingInflationValue(item.current);
   });
   if (!missing.length) return data;
 
@@ -156,10 +158,18 @@ async function fillAnnualInflationFallback(value) {
   return merged;
 }
 
+function isMissingInflationValue(value) {
+  return value == null || value === '' || value === '—' || value === '-';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadHomeData();
-  document.addEventListener('dataLoaded', event => {
-    if (event.detail) renderHome(event.detail);
+  document.addEventListener('dataLoaded', async event => {
+    if (event.detail) {
+      const data = { ...event.detail };
+      data.inflationData = await fillAnnualInflationFallback(data.inflationData);
+      renderHome(data);
+    }
   });
   setInterval(loadHomeData, CONFIG.REFRESH_INTERVAL);
 });

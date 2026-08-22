@@ -363,7 +363,7 @@
           const icon = this.querySelector("i");
           icon.classList.add("fa-spin");
           if (window.NewsPage && window.NewsPage.loadNewsData) {
-            window.NewsPage.loadNewsData().then(() => {
+            window.NewsPage.loadNewsData(true).then(() => {
               setTimeout(() => icon.classList.remove("fa-spin"), 500);
             });
           } else {

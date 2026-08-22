@@ -1,4 +1,5 @@
 import CONFIG from '../config.js';
+import { fetchMarketData, refreshData } from '../modules/api.js';
 
 const REFRESH_INTERVAL = 180000;
 let newsData = [];
@@ -14,6 +15,7 @@ const CATEGORY_NAMES = {
     stocks: '📈 أسهم',
     general: '📰 عام'
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadNewsData();
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-async function loadNewsData() {
+async function loadNewsData(forceRefresh = false) {
     try {
         const localData = window.AT?.appData?.newsData;
         const localNews = normalizeNews(localData);
@@ -55,17 +57,28 @@ async function loadNewsData() {
             return;
         }
 
-        const response = await fetch(`${CONFIG.API_URL}?t=${Date.now()}`, {
-            headers: { 'X-My-App-Auth': CONFIG.API_SECRET_KEY, Accept: 'application/json' }
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
+        const data = await (forceRefresh ? refreshData() : fetchMarketData());
         newsData = normalizeNews(data.newsData);
         if (!newsData.length) throw new Error('The API returned no news items');
         renderNews();
     } catch (error) {
         console.error('News data error:', error);
+        const cachedNews = readCachedNews();
+        if (cachedNews.length) {
+            newsData = cachedNews;
+            renderNews();
+            return;
+        }
         showError('تعذر تحميل الأخبار حاليًا.');
+    }
+}
+
+function readCachedNews() {
+    try {
+        const cached = JSON.parse(sessionStorage.getItem('at-financial-data') || 'null');
+        return normalizeNews(cached?.data?.newsData ?? cached?.newsData);
+    } catch {
+        return [];
     }
 }
 
@@ -73,6 +86,12 @@ function normalizeNews(value) {
     let data = value;
     if (typeof data === 'string') {
         try { data = JSON.parse(data); } catch { return []; }
+    }
+    if (!Array.isArray(data) && data && typeof data === 'object') {
+        data = data.newsData ?? data.results ?? data.articles ?? data.news ?? data.data;
+        if (typeof data === 'string') {
+            try { data = JSON.parse(data); } catch { return []; }
+        }
     }
     if (!Array.isArray(data)) return [];
 
@@ -83,6 +102,7 @@ function normalizeNews(value) {
         source: String(item.source || 'مصدر اقتصادي'),
         time: String(item.time || 'اليوم'),
         description: String(item.description || item.summary || item.content || ''),
+        article: String(item.article || item.content || item.body || item.details || ''),
         category: detectCategory(item.title)
     }));
 }
