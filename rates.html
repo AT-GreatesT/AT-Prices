@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AT Financial - أسعار الفائدة للبنوك المركزية حول العالم"
+    />
+    <meta
+      name="keywords"
+      content="أسعار الفائدة, البنك المركزي, الفائدة الأمريكية, الفائدة المصرية, الفائدة السعودية"
+    />
+    <meta name="author" content="AT Financial" />
+
+    <title>أسعار الفائدة - AT Financial</title>
+
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pages/rates.css" />
+    <link rel="stylesheet" href="css/pages/sidebar.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ==================== شريط التنقل العلوي ==================== -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <div class="navbar-brand">
+          <span class="brand-icon">💎</span>
+          <span class="brand-name">AT Financial</span>
+        </div>
+
+        <div class="navbar-links" id="navbarLinks">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-house"></i>
+            <span>الرئيسية</span>
+          </a>
+          <a href="prices.html" class="nav-link">
+            <i class="fas fa-coins"></i>
+            <span>الأسعار</span>
+          </a>
+          <a href="rates.html" class="nav-link active">
+            <i class="fas fa-percent"></i>
+            <span>الفائدة</span>
+          </a>
+          <a href="inflation.html" class="nav-link">
+            <i class="fas fa-chart-simple"></i>
+            <span>التضخم</span>
+          </a>
+          <a href="news.html" class="nav-link">
+            <i class="fas fa-newspaper"></i>
+            <span>الأخبار</span>
+          </a>
+          <a href="ai-forecast.html" class="nav-link">
+            <i class="fas fa-robot"></i>
+            <span>التوقعات</span>
+          </a>
+        </div>
+
+        <div class="navbar-controls">
+          <div class="language-selector">
+            <button class="lang-btn" id="langBtn">
+              <i class="fas fa-globe"></i>
+              <span id="currentLangLabel">العربية</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-option active" data-lang="ar">
+                <span class="lang-flag">🇸🇦</span> العربية
+              </button>
+              <button class="lang-option" data-lang="en">
+                <span class="lang-flag">🇬🇧</span> English
+              </button>
+              <button class="lang-option" data-lang="fr">
+                <span class="lang-flag">🇫🇷</span> Français
+              </button>
+              <button class="lang-option" data-lang="es">
+                <span class="lang-flag">🇪🇸</span> Español
+              </button>
+              <button class="lang-option" data-lang="de">
+                <span class="lang-flag">🇩🇪</span> Deutsch
+              </button>
+              <button class="lang-option" data-lang="it">
+                <span class="lang-flag">🇮🇹</span> Italiano
+              </button>
+              <button class="lang-option" data-lang="pt">
+                <span class="lang-flag">🇵🇹</span> Português
+              </button>
+              <button class="lang-option" data-lang="ru">
+                <span class="lang-flag">🇷🇺</span> Русский
+              </button>
+              <button class="lang-option" data-lang="zh">
+                <span class="lang-flag">🇨🇳</span> 中文
+              </button>
+              <button class="lang-option" data-lang="ja">
+                <span class="lang-flag">🇯🇵</span> 日本語
+              </button>
+              <button class="lang-option" data-lang="ko">
+                <span class="lang-flag">🇰🇷</span> 한국어
+              </button>
+              <button class="lang-option" data-lang="hi">
+                <span class="lang-flag">🇮🇳</span> हिन्दी
+              </button>
+              <button class="lang-option" data-lang="tr">
+                <span class="lang-flag">🇹🇷</span> Türkçe
+              </button>
+              <button class="lang-option" data-lang="ur">
+                <span class="lang-flag">🇵🇰</span> اردو
+              </button>
+              <button class="lang-option" data-lang="fa">
+                <span class="lang-flag">🇮🇷</span> فارسی
+              </button>
+            </div>
+          </div>
+
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== القائمة الجانبية ==================== -->
+    <button
+      class="sidebar-toggle"
+      id="sidebarToggle"
+      aria-label="تبديل القائمة الجانبية"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-icon">💎</span>
+          <span class="brand-name">AT Financial</span>
+        </div>
+        <button class="sidebar-close" id="sidebarClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul id="sidebarMenu">
+          <!-- سيتم توليد العناصر بواسطة JavaScript -->
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-copy">© 2026 AT Financial</div>
+        <div class="sidebar-status">
+          <span class="status-dot online"></span>
+          <span class="status-text">متصل</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ==================== المحتوى الرئيسي ==================== -->
+    <main class="main-content" id="mainContent">
+      <!-- رأس الصفحة -->
+      <header class="page-header">
+        <div class="header-content">
+          <div class="header-left">
+            <h1 class="page-title">📈 أسعار الفائدة</h1>
+            <p class="page-subtitle">
+              أسعار الفائدة للبنوك المركزية حول العالم
+            </p>
+          </div>
+          <div class="header-right">
+            <span class="last-update" id="lastUpdate">
+              <i class="fas fa-clock"></i>
+              <span>آخر تحديث: --:--:--</span>
+            </span>
+            <button
+              class="refresh-btn"
+              id="refreshBtn"
+              aria-label="تحديث البيانات"
+            >
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- رسائل النظام -->
+      <div class="notification" id="notification" style="display: none"></div>
+      <div class="error-message" id="errorMessage" style="display: none"></div>
+
+      <!-- ==================== محتوى الصفحة ==================== -->
+      <section class="page-content" id="pageContent">
+        <!-- ===== ملخص أسعار الفائدة ===== -->
+        <section id="overview" class="rate-section overview-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-icon">📊</span>
+              <h2>ملخص أسعار الفائدة</h2>
+            </div>
+            <span class="section-badge">مباشر</span>
+          </div>
+          <div class="section-content" id="ratesOverview">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري تحميل بيانات أسعار الفائدة...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== التحليل الذكي ===== -->
+        <section id="analysis" class="rate-section analysis-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-icon">🧠</span>
+              <h2>التحليل الذكي</h2>
+            </div>
+            <span class="section-badge">Gemini AI</span>
+          </div>
+          <div class="section-content" id="ratesAnalysis">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري إعداد التحليل...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== البطاقات التفصيلية ===== -->
+        <section id="details" class="rate-section details-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-icon">🏦</span>
+              <h2>تفاصيل أسعار الفائدة</h2>
+            </div>
+            <span class="section-badge">مفصل</span>
+          </div>
+          <div class="section-content" id="ratesDetails">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري تحميل التفاصيل...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== مقارنة أسعار الفائدة ===== -->
+        <section id="comparison" class="rate-section comparison-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-icon">📊</span>
+              <h2>مقارنة أسعار الفائدة</h2>
+            </div>
+            <span class="section-badge">تحليل</span>
+          </div>
+          <div class="section-content" id="ratesComparison">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري تحميل بيانات المقارنة...</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== تاريخ أسعار الفائدة ===== -->
+        <section id="history" class="rate-section history-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="section-icon">📅</span>
+              <h2>تاريخ أسعار الفائدة</h2>
+            </div>
+            <span class="section-badge">أرشيف</span>
+          </div>
+          <div class="section-content" id="ratesHistory">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري تحميل البيانات التاريخية...</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================== التذييل ==================== -->
+      <footer class="page-footer">
+        <div class="footer-container">
+          <div class="footer-column">
+            <div class="footer-brand">
+              <span class="brand-icon">💎</span>
+              <span class="brand-name">AT Financial</span>
+            </div>
+            <p class="footer-desc">
+              منصة متخصصة في عرض الأسعار المباشرة للذهب، الفضة، العملات، النفط،
+              العملات الرقمية وأسعار الفائدة والتضخم.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="لينكد إن"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="تيليجرام"
+                ><i class="fab fa-telegram-plane"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">روابط سريعة</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="prices.html">الأسعار المباشرة</a></li>
+              <li><a href="rates.html">أسعار الفائدة</a></li>
+              <li><a href="inflation.html">معدلات التضخم</a></li>
+              <li><a href="news.html">الأخبار الاقتصادية</a></li>
+              <li><a href="ai-forecast.html">توقعات الذكاء الاصطناعي</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">الدول</h4>
+            <ul class="footer-links">
+              <li><a href="#us">الولايات المتحدة</a></li>
+              <li><a href="#eg">مصر</a></li>
+              <li><a href="#sa">السعودية</a></li>
+              <li><a href="#eu">منطقة اليورو</a></li>
+              <li><a href="#uk">المملكة المتحدة</a></li>
+              <li><a href="#jp">اليابان</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-title">معلومات</h4>
+            <ul class="footer-links">
+              <li><a href="#">عن الموقع</a></li>
+              <li><a href="#">سياسة الخصوصية</a></li>
+              <li><a href="#">شروط الاستخدام</a></li>
+              <li><a href="#">اتصل بنا</a></li>
+              <li><a href="#">الدعم الفني</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            <span>© 2026 AT Financial. جميع الحقوق محفوظة.</span>
+          </div>
+          <div class="footer-lang">
+            <span id="footerLang">🌐 العربية</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script type="module">
+      import CONFIG from "./js/config.js";
+      import "./js/script.js";
+      import "./js/modules/sidebar.js";
+      import "./js/modules/api.js";
+      import { initSidebar } from "./js/modules/sidebar.js";
+      import "./js/pages/rates.js";
+
+      window.CONFIG = CONFIG;
+
+      // تهيئة القائمة الجانبية
+      const sidebar = initSidebar("rates");
+
+      // تحديث وقت آخر تحديث
+      function updateLastUpdateTime() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString("ar-EG", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        const lastUpdate = document.getElementById("lastUpdate");
+        if (lastUpdate) {
+          lastUpdate.innerHTML = `<i class="fas fa-clock"></i><span>آخر تحديث: ${timeStr}</span>`;
+        }
+      }
+
+      setInterval(updateLastUpdateTime, 1000);
+      updateLastUpdateTime();
+
+      // زر التحديث
+      document
+        .getElementById("refreshBtn")
+        ?.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          icon.classList.add("fa-spin");
+          if (window.RatesPage && window.RatesPage.loadRatesData) {
+            window.RatesPage.loadRatesData().then(() => {
+              setTimeout(() => icon.classList.remove("fa-spin"), 500);
+            });
+          } else {
+            setTimeout(() => icon.classList.remove("fa-spin"), 500);
+          }
+        });
+
+      // التبديل بين الثيمات
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const savedTheme = localStorage.getItem("theme") || "light";
+      if (savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeIcon.className = "fas fa-sun";
+      }
+
+      themeToggle?.addEventListener("click", function () {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        if (isDark) {
+          document.documentElement.removeAttribute("data-theme");
+          localStorage.setItem("theme", "light");
+          themeIcon.className = "fas fa-moon";
+        } else {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+          themeIcon.className = "fas fa-sun";
+        }
+      });
+
+      // اختيار اللغة
+      const langBtn = document.getElementById("langBtn");
+      const langDropdown = document.getElementById("langDropdown");
+      const currentLangLabel = document.getElementById("currentLangLabel");
+
+      langBtn?.addEventListener("click", function (e) {
+        e.stopPropagation();
+        langDropdown.classList.toggle("open");
+      });
+
+      document.addEventListener("click", function () {
+        langDropdown?.classList.remove("open");
+      });
+
+      document.querySelectorAll(".lang-option").forEach((option) => {
+        option.addEventListener("click", function () {
+          const label = this.textContent.trim();
+          currentLangLabel.textContent = label;
+          document
+            .querySelectorAll(".lang-option")
+            .forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+          langDropdown.classList.remove("open");
+          localStorage.setItem("language", this.dataset.lang);
+        });
+      });
+
+      // التحكم في القائمة الجانبية
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarClose = document.getElementById("sidebarClose");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+      const sidebarEl = document.getElementById("sidebar");
+
+      function toggleSidebar() {
+        sidebarEl.classList.toggle("open");
+        sidebarOverlay.classList.toggle("active");
+        document.body.classList.toggle("sidebar-open");
+      }
+
+      sidebarToggle?.addEventListener("click", toggleSidebar);
+      sidebarClose?.addEventListener("click", toggleSidebar);
+      sidebarOverlay?.addEventListener("click", toggleSidebar);
+
+      // قائمة الهاتف
+      const menuToggle = document.getElementById("menuToggle");
+      const navbarLinks = document.getElementById("navbarLinks");
+
+      menuToggle?.addEventListener("click", function () {
+        navbarLinks.classList.toggle("open");
+        this.classList.toggle("active");
+      });
+
+      console.log("✅ Rates page loaded successfully");
+    </script>
+  </body>
+</html>

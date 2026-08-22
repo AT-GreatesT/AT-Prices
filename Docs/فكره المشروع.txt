@@ -1,0 +1,39 @@
+هيكل المشروع    
+
+AT-Prices/
+│
+├── index.html              # الصفحة الرئيسية
+├── prices.html             # صفحة الأسعار المباشرة
+├── rates.html              # صفحة أسعار الفائدة
+├── inflation.html          # صفحة أسعار التضخم
+├── news.html               # صفحة الأخبار الاقتصادية
+├── ai-forecast.html        # صفحة توقعات الذكاء الاصطناعي
+│
+├── css/
+│   ├── main.css            # التنسيقات المشتركة (Header, Footer, Sidebar, Colors)
+│   └── pages/              # التنسيقات الخاصة بكل صفحة
+│       ├── home.css
+│       ├── prices.css
+│       ├── rates.css
+│       ├── inflation.css
+│       ├── news.css
+│       └── forecast.css
+│
+└── js/
+    ├── config.js           # إعدادات الـ APIs والمفاتيح
+      ├── script.js           # الصفحه العامه والمسؤله عن اكوادالجافا 
+    ├── modules/            # موديولات برمجية مشتركة
+    │   ├── api.js          # دالة جلب البيانات الموحدة (Fetch API)
+    │   └── sidebar.js      # موديول إدارة التبديل في السايد بار وإظهار العنصر الأول
+    └── pages/              # كود الجافاسكريبت الخاص بكل صفحة
+        ├── home.js
+        ├── prices.js
+        ├── rates.js
+        ├── inflation.js
+        ├── news.js
+        └── forecast.js
+
+
+
+
+

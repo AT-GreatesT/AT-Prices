@@ -1,1 +1,128 @@
-const _0x489362=_0xa62e;function _0xa62e(_0x2c0737,_0x50a6c9){_0x2c0737=_0x2c0737-0x104;const _0x2c1e7f=_0x2c1e();let _0xa62ead=_0x2c1e7f[_0x2c0737];return _0xa62ead;}(function(_0x293739,_0x299f8a){const _0x17964a=_0xa62e,_0x2c50a6=_0x293739();while(!![]){try{const _0x34a5f2=-parseInt(_0x17964a(0x109))/0x1*(-parseInt(_0x17964a(0x10e))/0x2)+-parseInt(_0x17964a(0x10c))/0x3+parseInt(_0x17964a(0x115))/0x4+-parseInt(_0x17964a(0x116))/0x5+-parseInt(_0x17964a(0x105))/0x6+-parseInt(_0x17964a(0x124))/0x7*(parseInt(_0x17964a(0x12f))/0x8)+parseInt(_0x17964a(0x106))/0x9*(parseInt(_0x17964a(0x131))/0xa);if(_0x34a5f2===_0x299f8a)break;else _0x2c50a6['push'](_0x2c50a6['shift']());}catch(_0x3e6485){_0x2c50a6['push'](_0x2c50a6['shift']());}}}(_0x2c1e,0xbfe2c));const API_URL=_0x489362(0x11f),API_KEY=_0x489362(0x128),REFRESH_INTERVAL=0x7530;async function fetchLivePrices(){const _0x58ccc6=_0x489362;try{const _0x10153a=await fetch(API_URL,{'method':'GET','headers':{'X-My-App-Auth':API_KEY}});if(!_0x10153a['ok'])throw new Error(_0x58ccc6(0x120));const _0x4cf34f=await _0x10153a[_0x58ccc6(0x111)]();Object['keys'](_0x4cf34f)[_0x58ccc6(0x12e)](_0x3c7e6b=>{const _0x10b308=_0x58ccc6,_0x492ca7=_0x4cf34f[_0x3c7e6b],_0x1e778f=document[_0x10b308(0x113)]('#'+_0x3c7e6b);_0x1e778f[_0x10b308(0x12e)](_0x3fd2ff=>{const _0x5f1a28=_0x10b308;_0x492ca7&&_0x3fd2ff[_0x5f1a28(0x12b)]!==_0x492ca7&&updateElementWithAnimation(_0x3fd2ff,_0x492ca7);});}),console['log'](_0x58ccc6(0x127)+new Date()[_0x58ccc6(0x10f)]());}catch(_0x435735){console[_0x58ccc6(0x132)](_0x58ccc6(0x10b),_0x435735);}}function _0x2c1e(){const _0x4f5762=['Fetch\x20Error:','4538844WLogWL','active','32UaQcTM','toLocaleTimeString','scale(1.05)','json','getElementById','querySelectorAll','#ffcc00','4552088DVlUYQ','4565585PYHtqI','getAttribute','remove','color\x200.4s\x20ease,\x20transform\x200.4s\x20ease','transform','classList','transition','add','Section\x20\x22','https://didrwhsltizbtyjsnokb.supabase.co/functions/v1/AT-Prices','Network\x20response\x20was\x20not\x20ok','addEventListener','style','data-section','7vXWmXl','display','.nav-chips\x20a','Update\x20successful:\x20','EbDHY1u?w)*9vo5@[]O5MgiEZYM5kP9wHJao1a;5gq3;V:w-X7','.page-section','smooth','innerText','block','color','forEach','3561928NoEwpe','none','830cHqGOV','error','scale(1)','6619386sVHsIm','338157JsaJpb','preventDefault','click','31495fPXlLO','cursor'];_0x2c1e=function(){return _0x4f5762;};return _0x2c1e();}function updateElementWithAnimation(_0x2e627c,_0x3da21e){const _0x5e609d=_0x489362;_0x2e627c['style'][_0x5e609d(0x11c)]=_0x5e609d(0x119),_0x2e627c[_0x5e609d(0x12b)]=_0x3da21e,_0x2e627c[_0x5e609d(0x122)][_0x5e609d(0x12d)]=_0x5e609d(0x114),_0x2e627c[_0x5e609d(0x122)][_0x5e609d(0x11a)]=_0x5e609d(0x110),setTimeout(()=>{const _0x3c32f6=_0x5e609d;_0x2e627c[_0x3c32f6(0x122)][_0x3c32f6(0x12d)]='',_0x2e627c['style'][_0x3c32f6(0x11a)]=_0x3c32f6(0x104);},0x3e8);}function setupNavigation(){const _0x51e454=_0x489362,_0x4b8a4e=document[_0x51e454(0x113)]('.nav-chips\x20a,\x20[data-section]');_0x4b8a4e[_0x51e454(0x12e)](_0x501961=>{const _0x3b7584=_0x51e454;_0x501961['style'][_0x3b7584(0x10a)]='pointer',_0x501961[_0x3b7584(0x121)](_0x3b7584(0x108),function(_0x4ac60b){const _0x129427=_0x3b7584,_0xe35448=this[_0x129427(0x117)](_0x129427(0x123));_0xe35448&&(_0x4ac60b[_0x129427(0x107)](),openSection(_0xe35448));});});}function openSection(_0x3b96ac){const _0x41722d=_0x489362,_0x2d3018=document[_0x41722d(0x113)](_0x41722d(0x129)),_0x33d15a=document[_0x41722d(0x112)](_0x3b96ac);if(!_0x33d15a){console['warn'](_0x41722d(0x11e)+_0x3b96ac+'\x22\x20not\x20found.');return;}_0x2d3018['forEach'](_0x564702=>{const _0x334b82=_0x41722d;_0x564702[_0x334b82(0x11b)]['remove'](_0x334b82(0x10d)),_0x564702[_0x334b82(0x122)][_0x334b82(0x125)]=_0x334b82(0x130);}),_0x33d15a[_0x41722d(0x122)][_0x41722d(0x125)]=_0x41722d(0x12c),setTimeout(()=>{const _0xe76cd4=_0x41722d;_0x33d15a['classList'][_0xe76cd4(0x11d)](_0xe76cd4(0x10d));},0xa),updateActiveChips(_0x3b96ac),window['scrollTo']({'top':0x0,'behavior':_0x41722d(0x12a)});}function updateActiveChips(_0x1024fe){const _0x1a648d=_0x489362,_0x6242a5=document[_0x1a648d(0x113)](_0x1a648d(0x126));_0x6242a5[_0x1a648d(0x12e)](_0x4d4885=>{const _0x43f3e6=_0x1a648d;_0x4d4885[_0x43f3e6(0x117)](_0x43f3e6(0x123))===_0x1024fe?_0x4d4885[_0x43f3e6(0x11b)]['add'](_0x43f3e6(0x10d)):_0x4d4885[_0x43f3e6(0x11b)][_0x43f3e6(0x118)](_0x43f3e6(0x10d));});}document[_0x489362(0x121)]('DOMContentLoaded',()=>{setupNavigation(),fetchLivePrices(),setInterval(fetchLivePrices,REFRESH_INTERVAL);});
+import { CONFIG } from './config.js';
+
+/* ================= DARK / LIGHT THEME TOGGLE ================= */
+export function initThemeToggle() {
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme') || 'light';
+
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (themeToggleBtn) themeToggleBtn.querySelector('i')?.classList.toggle('fa-sun', savedTheme === 'dark');
+}
+
+/* ================= AUTOMATIC TRANSLATION ENGINE ================= */
+export function initAutoTranslate() {
+  window.googleTranslateElementInit = function() {
+    new window.google.translate.TranslateElement({
+      pageLanguage: 'ar',
+      includedLanguages: CONFIG.SUPPORTED_LANGS.map(l => l.code).join(','),
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+
+  if (!document.getElementById('google-translate-script')) {
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+  }
+}
+
+export function changeLanguage(langCode) {
+  const langConfig = CONFIG.SUPPORTED_LANGS.find(l => l.code === langCode);
+  if (!langConfig) return;
+
+  document.documentElement.lang = langCode;
+  document.documentElement.dir = langConfig.dir;
+  localStorage.setItem('app_lang', langCode);
+
+  const googleLangCode = langCode === 'zh' ? 'zh-CN' : langCode;
+  const selectEl = document.querySelector('.goog-te-combo');
+  if (selectEl) {
+    selectEl.value = langCode === 'ar' ? '' : googleLangCode;
+    selectEl.dispatchEvent(new Event('change'));
+  }
+}
+
+function initLanguageControls() {
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', () => {
+      const langCode = option.dataset.lang;
+      changeLanguage(langCode);
+
+      // Google creates its select asynchronously, so apply the choice once it exists.
+      let attempts = 0;
+      const applyWhenReady = window.setInterval(() => {
+        const selectEl = document.querySelector('.goog-te-combo');
+        if (selectEl || attempts++ > 20) {
+          window.clearInterval(applyWhenReady);
+          if (selectEl) {
+            selectEl.value = langCode === 'zh' ? 'zh-CN' : langCode;
+            selectEl.dispatchEvent(new Event('change'));
+          }
+        }
+      }, 100);
+    });
+  });
+}
+
+/* ================= SCROLL TO TOP BUTTON ================= */
+function initScrollTop() {
+  let scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (!scrollTopBtn) {
+    scrollTopBtn = document.createElement('button');
+    scrollTopBtn.id = 'scrollTopBtn';
+    scrollTopBtn.className = 'scroll-top-btn';
+    scrollTopBtn.type = 'button';
+    scrollTopBtn.setAttribute('aria-label', 'العودة إلى أعلى الصفحة');
+    scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(scrollTopBtn);
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ================= INITIALIZATION ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  // إضافة حاوية عنصر ترجمة جوجل مخفية
+  if (!document.getElementById('google_translate_element')) {
+    const gtDiv = document.createElement('div');
+    gtDiv.id = 'google_translate_element';
+    document.body.appendChild(gtDiv);
+  }
+
+  initThemeToggle();
+  initAutoTranslate();
+  initLanguageControls();
+  initScrollTop();
+
+  // ضبط اللغة المحفوظة
+  const savedLang = localStorage.getItem('app_lang') || localStorage.getItem('language') || CONFIG.DEFAULT_LANG;
+  const langSelector = document.getElementById('langSelector');
+  if (langSelector) {
+    langSelector.value = savedLang;
+    langSelector.addEventListener('change', (e) => changeLanguage(e.target.value));
+  }
+
+  const savedOption = document.querySelector(`.lang-option[data-lang="${savedLang}"]`);
+  if (savedOption) {
+    savedOption.classList.add('active');
+    const currentLangLabel = document.getElementById('currentLangLabel');
+    if (currentLangLabel) currentLangLabel.textContent = savedOption.textContent.trim();
+  }
+});
+
+
+

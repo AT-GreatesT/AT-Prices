@@ -1,0 +1,805 @@
+/* ============================================
+   forecast.css - تنسيقات صفحة توقعات الذكاء الاصطناعي
+   ============================================ */
+
+/* ==================== شريط حالة الذكاء الاصطناعي ==================== */
+.ai-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.ai-icon {
+    font-size: var(--font-size-2xl);
+}
+
+.ai-label {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ai-status-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+.ai-status-badge.active {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.ai-confidence {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.confidence-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.confidence-bar {
+    width: 150px;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #2ecc71, #f1c40f, #e74c3c);
+    transition: width 1s ease;
+}
+
+.confidence-value {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 45px;
+}
+
+/* ==================== الأقسام ==================== */
+.forecast-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.forecast-section.is-hidden {
+    display: none;
+}
+
+.forecast-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 2px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.section-icon {
+    font-size: var(--font-size-xl);
+}
+
+.section-title h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.section-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    background: rgba(155, 89, 182, 0.15);
+    color: #9b59b6;
+}
+
+.section-badge.ai {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+.section-content {
+    padding: var(--spacing-lg);
+}
+
+/* ==================== بطاقات المقاييس ==================== */
+.metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.metric-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.metric-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.metric-card .metric-icon {
+    font-size: var(--font-size-2xl);
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+.metric-card .metric-title {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.metric-card .metric-value {
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.metric-card .metric-sub {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+}
+
+/* ==================== رؤى السوق ==================== */
+.insights-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.insight-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.insight-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.insight-card .insight-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.insight-card .insight-icon {
+    font-size: var(--font-size-xl);
+}
+
+.insight-card .insight-title {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.insight-card .insight-value {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ==================== تحليل المشاعر ==================== */
+.sentiment-container {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.sentiment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+}
+
+.sentiment-header h3 {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.sentiment-count {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.sentiment-gauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.gauge-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 8px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gauge-circle .gauge-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.gauge-circle .gauge-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+}
+
+.gauge-bar-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.gauge-bar {
+    width: 100%;
+    height: 12px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    position: relative;
+}
+
+.gauge-fill {
+    height: 100%;
+    border-radius: var(--radius-sm);
+    transition: width 1s ease;
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.sentiment-description {
+    text-align: center;
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    padding: var(--spacing-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-md);
+}
+
+/* ==================== التوصيات الذكية ==================== */
+.recommendations-container {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.recommendations-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.recommendations-header h3 {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.recommendation-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: #fff;
+    border-radius: var(--radius-sm);
+}
+
+.recommendation-text {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding: var(--spacing-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border-right: 4px solid var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.recommendation-points {
+    margin-top: var(--spacing-md);
+}
+
+.recommendation-points h4 {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-sm);
+}
+
+.recommendation-points ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendation-points li {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    border-right: 3px solid var(--primary-color);
+}
+
+.recommendation-footer {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+}
+
+/* ==================== إشارات السوق ==================== */
+.signals-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.signal-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.signal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.signal-card .signal-icon {
+    font-size: var(--font-size-2xl);
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+.signal-card .signal-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.signal-card .signal-value {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+}
+
+.signal-value.buy {
+    color: #2ecc71;
+}
+
+.signal-value.sell {
+    color: #e74c3c;
+}
+
+.signal-value.neutral {
+    color: #f1c40f;
+}
+
+.signal-value.strong-buy {
+    color: #27ae60;
+}
+
+.signal-value.strong-sell {
+    color: #c0392b;
+}
+
+/* ==================== تحميل البيانات ==================== */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-md);
+    color: var(--text-muted);
+}
+
+.loading-spinner i {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-color);
+}
+
+/* ==================== حالة عدم وجود بيانات ==================== */
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-sm);
+    color: var(--text-muted);
+}
+
+.no-data i {
+    font-size: var(--font-size-2xl);
+    opacity: 0.5;
+}
+
+/* ==================== الرسوم المتحركة ==================== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.metric-card {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.metric-card:nth-child(1) { animation-delay: 0.05s; }
+.metric-card:nth-child(2) { animation-delay: 0.1s; }
+.metric-card:nth-child(3) { animation-delay: 0.15s; }
+.metric-card:nth-child(4) { animation-delay: 0.2s; }
+.metric-card:nth-child(5) { animation-delay: 0.25s; }
+.metric-card:nth-child(6) { animation-delay: 0.3s; }
+
+.insight-card {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.insight-card:nth-child(1) { animation-delay: 0.1s; }
+.insight-card:nth-child(2) { animation-delay: 0.15s; }
+.insight-card:nth-child(3) { animation-delay: 0.2s; }
+
+.signal-card {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.signal-card:nth-child(1) { animation-delay: 0.05s; }
+.signal-card:nth-child(2) { animation-delay: 0.1s; }
+.signal-card:nth-child(3) { animation-delay: 0.15s; }
+.signal-card:nth-child(4) { animation-delay: 0.2s; }
+
+/* ==================== التمرير السلس ==================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+/* ==================== الثيم الداكن ==================== */
+[data-theme="dark"] .forecast-section {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .metric-card {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .insight-card {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .sentiment-container {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .recommendations-container {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .signal-card {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .ai-status-bar {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
+}
+
+[data-theme="dark"] .gauge-circle {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .recommendation-text {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .recommendation-points li {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .recommendation-footer {
+    background: var(--bg-tertiary);
+}
+
+/* ==================== الوسائط (Responsive) ==================== */
+
+/* شاشات كبيرة */
+@media (max-width: 1200px) {
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .insights-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .signals-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* شاشات متوسطة */
+@media (max-width: 992px) {
+    .ai-status-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
+    }
+    
+    .ai-confidence {
+        justify-content: space-between;
+    }
+    
+    .confidence-bar {
+        flex: 1;
+    }
+    
+    .section-content {
+        padding: var(--spacing-md);
+    }
+}
+
+/* شاشات صغيرة */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    .metric-card {
+        padding: var(--spacing-md);
+    }
+    
+    .metric-card .metric-value {
+        font-size: var(--font-size-lg);
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .signals-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .section-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .section-title h2 {
+        font-size: var(--font-size-md);
+    }
+    
+    .gauge-circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gauge-circle .gauge-number {
+        font-size: var(--font-size-xl);
+    }
+    
+    .recommendation-text {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+    .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .metric-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .metric-card .metric-icon {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .metric-card .metric-title {
+        font-size: var(--font-size-xs);
+    }
+    
+    .metric-card .metric-value {
+        font-size: var(--font-size-md);
+    }
+    
+    .signals-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .signal-card {
+        padding: var(--spacing-md);
+    }
+    
+    .section-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .ai-status-bar {
+        padding: var(--spacing-sm);
+    }
+    
+    .confidence-bar {
+        width: 100px;
+    }
+    
+    .sentiment-container {
+        padding: var(--spacing-md);
+    }
+    
+    .recommendations-container {
+        padding: var(--spacing-md);
+    }
+    
+    .gauge-circle {
+        width: 100px;
+        height: 100px;
+        border-width: 6px;
+    }
+    
+    .gauge-circle .gauge-value {
+        font-size: var(--font-size-md);
+    }
+    
+    .gauge-circle .gauge-number {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* ==================== حالة الاتصال ==================== */
+.offline-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: #e74c3c;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm);
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.offline-indicator i {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==================== إضاءة القسم النشط ==================== */
+.forecast-section:target {
+    animation: highlightSection 1s ease;
+}
+
+@keyframes highlightSection {
+    0%, 100% {
+        box-shadow: var(--shadow-sm);
+    }
+    50% {
+        box-shadow: 0 0 0 4px var(--primary-color), var(--shadow-lg);
+    }
+}
+
+/* ==================== تلميحات الأدوات ==================== */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+}
+
+

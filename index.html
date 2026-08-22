@@ -1,284 +1,708 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>AT Prices | أسعار الأسواق لحظيًا</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AT Financial - منصة متخصصة في عرض الأسعار المباشرة للذهب، الفضة، العملات، النفط، العملات الرقمية وأسعار الفائدة والتضخم"
+    />
+    <meta
+      name="keywords"
+      content="أسعار الذهب, أسعار العملات, سعر الدولار, سعر اليورو, أسعار الفائدة, التضخم, العملات الرقمية, البتكوين"
+    />
+    <meta name="author" content="AT Financial" />
 
+    <title>AT Financial - منصة الأسعار المباشرة</title>
 
-<header class="header">
-  <h1>
-    <span class="ar">💰 أسعار AT</span>
-    <span class="en">📊 AT Prices</span>
-  </h1>
-</header>
+    <!-- Font Awesome 6 (مجاني) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<div class="intro-container">
-  <p class="intro-text">
-    منصة متخصصة في عرض الأسعار اللحظية:  
-    <span class="emoji">🥇</span> الذهب، 
-    <span class="emoji">🥈</span> الفضة، 
-    <span class="emoji">🛢️</span> النفط، 
-    <span class="emoji">⚒️</span> المعادن، 
-    <span class="emoji">💹</span> العملات الرقمية، 
-    <span class="emoji">💱</span> أسعار الصرف، 
-    <span class="emoji">🔗</span> أزواج العملات، 
-    <span class="emoji">📈</span> مؤشرات الأسهم ،
-    <span class="emoji">⛽</span> البنزين والسولار
-    بواجهة سهلة وسريعة.
-  </p>
-</div>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
+    <link rel="stylesheet" href="css/pages/sidebar.css" />
 
-<nav class="nav-chips">
-    <a data-section="home" class="active">الرئيسية</a>
-    <a data-section="gold">الذهب</a>
-    <a data-section="silver">الفضة</a>
-    <a data-section="oil">النفط</a>
-    <a data-section="metals">المعادن</a>
-    <a data-section="crypto">العملات الرقمية</a>
-    <a data-section="fx">أسعار الصرف</a>
-    <a data-section="pairs">أزواج العملات</a>
-    <a data-section="stocks">مؤشرات الأسهم</a>
-    <a data-section="fuel">البنزين والسولار</a>
-</nav>
-
-<main id="content">
-
-    <section id="home" class="page-section active">
-        <div class="cards">
-            <div class="card" data-section="gold"><div><h3>الذهب</h3><p id="goldHome">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="silver"><div><h3>الفضة</h3><p id="silverHome">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="oil"><div><h3>النفط</h3><p id="oilHome">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="metals"><div><h3>المعادن</h3><p id="platinumHome">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="crypto"><div><h3>العملات الرقمية</h3><p id="cryptoHome">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="fx"><div><h3>أسعار الصرف</h3><p id="fxHome">---</p></div><span>➜</span></div>
-            <div class="card" data-section="pairs"><div><h3>أزواج العملات</h3><p id="eurusd">---</p></div><span>➜</span></div>
-            <div class="card" data-section="stocks"><div><h3>مؤشرات الأسهم</h3><p id="sp500">$---</p></div><span>➜</span></div>
-            <div class="card" data-section="fuel"><div><h3>البنزين والسولار</h3><p id="gas92">--- ج.م</p></div><span>➜</span></div>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ==================== شريط التنقل العلوي ==================== -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <!-- القسم الأيسر (اللوجو + الاسم) -->
+        <div class="navbar-brand">
+          <span class="brand-icon">💎</span>
+          <span class="brand-name">AT Financial</span>
         </div>
-    </section>
 
-
-    <section id="gold" class="page-section">
-        <div class="page-container">
-            <h2>أسعار الذهب اللحظية</h2>
-            <table>
-                <tr><td>السعر الفوري (USD)</td><td id="goldSpot">$---</td></tr>
-                <tr><td>العقود الآجلة (USD)</td><td id="goldFuture">$---</td></tr>
-                <tr><td>جرام الذهب (USD)</td><td id="goldGramUSD">$---</td></tr>
-                <tr><td>جرام الذهب (EGP)</td><td id="goldGramEGP">---</td></tr>
-                <tr><td>عيار 24 (EGP)</td><td id="g24">---</td></tr>
-                <tr><td>عيار 21 (EGP)</td><td id="g21">---</td></tr>
-                <tr><td>عيار 18 (EGP)</td><td id="g18">---</td></tr>
-                <tr><td>سعر الجنيه الذهب (EGP)</td><td id="goldPound">---</td></tr>
-                <tr><td>دولار الصاغة (EGP)</td><td id="goldDollar">---</td></tr>
-            </table>
+        <!-- القسم الأوسط (روابط التنقل) -->
+        <div class="navbar-links" id="navbarLinks">
+          <a href="index.html" class="nav-link active">
+            <i class="fas fa-house"></i>
+            <span>الرئيسية</span>
+          </a>
+          <a href="prices.html" class="nav-link">
+            <i class="fas fa-coins"></i>
+            <span>الأسعار</span>
+          </a>
+          <a href="rates.html" class="nav-link">
+            <i class="fas fa-percent"></i>
+            <span>الفائدة</span>
+          </a>
+          <a href="inflation.html" class="nav-link">
+            <i class="fas fa-chart-simple"></i>
+            <span>التضخم</span>
+          </a>
+          <a href="news.html" class="nav-link">
+            <i class="fas fa-newspaper"></i>
+            <span>الأخبار</span>
+          </a>
+          <a href="ai-forecast.html" class="nav-link">
+            <i class="fas fa-robot"></i>
+            <span>التوقعات</span>
+          </a>
         </div>
-    </section>
 
-    <section id="silver" class="page-section">
-        <div class="page-container">
-            <h2>أسعار الفضة اللحظية</h2>
-            <table>
-                <tr><td>الأونصة عالمياً (USD)</td><td id="silverSpot">$---</td></tr>
-                <tr><td>جرام الفضة عيار 999 (EGP)</td><td id="silverGramEGP">---</td></tr>
-                <tr><td>جرام الفضة عيار 925 (EGP)</td><td id="silver925">---</td></tr>
-                <tr><td>سعر الدولار المستخدم</td><td id="silverDollar">---</td></tr>
-            </table>
+        <!-- القسم الأيمن (اللغات + الثيم) -->
+        <div class="navbar-controls">
+          <!-- اختيار اللغة -->
+          <div class="language-selector">
+            <button class="lang-btn" id="langBtn">
+              <i class="fas fa-globe"></i>
+              <span id="currentLangLabel">العربية</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+              <button class="lang-option active" data-lang="ar">
+                <span class="lang-flag">🇸🇦</span>
+                العربية
+              </button>
+              <button class="lang-option" data-lang="en">
+                <span class="lang-flag">🇬🇧</span>
+                English
+              </button>
+              <button class="lang-option" data-lang="fr">
+                <span class="lang-flag">🇫🇷</span>
+                Français
+              </button>
+              <button class="lang-option" data-lang="es">
+                <span class="lang-flag">🇪🇸</span>
+                Español
+              </button>
+              <button class="lang-option" data-lang="de">
+                <span class="lang-flag">🇩🇪</span>
+                Deutsch
+              </button>
+              <button class="lang-option" data-lang="it">
+                <span class="lang-flag">🇮🇹</span>
+                Italiano
+              </button>
+              <button class="lang-option" data-lang="pt">
+                <span class="lang-flag">🇵🇹</span>
+                Português
+              </button>
+              <button class="lang-option" data-lang="ru">
+                <span class="lang-flag">🇷🇺</span>
+                Русский
+              </button>
+              <button class="lang-option" data-lang="zh">
+                <span class="lang-flag">🇨🇳</span>
+                中文
+              </button>
+              <button class="lang-option" data-lang="ja">
+                <span class="lang-flag">🇯🇵</span>
+                日本語
+              </button>
+              <button class="lang-option" data-lang="ko">
+                <span class="lang-flag">🇰🇷</span>
+                한국어
+              </button>
+              <button class="lang-option" data-lang="hi">
+                <span class="lang-flag">🇮🇳</span>
+                हिन्दी
+              </button>
+              <button class="lang-option" data-lang="tr">
+                <span class="lang-flag">🇹🇷</span>
+                Türkçe
+              </button>
+              <button class="lang-option" data-lang="ur">
+                <span class="lang-flag">🇵🇰</span>
+                اردو
+              </button>
+              <button class="lang-option" data-lang="fa">
+                <span class="lang-flag">🇮🇷</span>
+                فارسی
+              </button>
+            </div>
+          </div>
+
+          <!-- تبديل الثيم (داكن / فاتح) -->
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="تبديل المظهر"
+          >
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+
+          <!-- زر القائمة للشاشات الصغيرة -->
+          <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-    </section>
+      </div>
+    </nav>
 
-    <section id="oil" class="page-section">
-        <div class="page-container">
-            <h2>أسعار النفط اللحظية</h2>
-            <table>
-                <tr><td>خام برنت (USD)</td><td id="oilSpot">$---</td></tr>
-                <tr><td>خام غرب تكساس (USD)</td><td id="oilWTI">$---</td></tr>
-                <tr><td>البرميل بالجنيه (EGP)</td><td id="oilEGP">---</td></tr>
-            </table>
+    <!-- ==================== القائمة الجانبية ==================== -->
+    <button
+      class="sidebar-toggle"
+      id="sidebarToggle"
+      aria-label="تبديل القائمة الجانبية"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <span class="brand-icon">💎</span>
+          <span class="brand-name">AT Financial</span>
         </div>
-    </section>
+        <button class="sidebar-close" id="sidebarClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
+      <nav class="sidebar-nav">
+        <ul id="sidebarMenu">
+          <!-- سيتم توليد العناصر بواسطة JavaScript -->
+        </ul>
+      </nav>
 
-    <section id="metals" class="page-section">
-        <div class="page-container">
-            <h2>أسعار المعادن اللحظية</h2>
-            <table>
-                <tr><td>النحاس (Copper)</td><td id="copperHome">---</td></tr>
-                <tr><td>البلاتين (Platinum)</td><td id="platinumHome">---</td></tr>
-                <tr><td>البالاديوم (Palladium)</td><td id="palladiumHome">---</td></tr>
-            </table>
+      <div class="sidebar-footer">
+        <div class="sidebar-copy">© 2026 AT Financial</div>
+        <div class="sidebar-status">
+          <span class="status-dot online"></span>
+          <span class="status-text">متصل</span>
         </div>
-    </section>
+      </div>
+    </aside>
 
-    <section id="crypto" class="page-section">
-        <div class="page-container">
-            <h2>أهم 10 عملات رقمية (USD)</h2>
-            <table>
-                <thead>
-                    <tr><td>العُملة</td><td>السعر (USD)</td></tr>
-                </thead>
-                <tbody id="cryptoTableBody">
-                    <tr><td>بتكوين (BTC)</td><td id="btcSpot">$---</td></tr>
-                    <tr><td>إيثيريوم (ETH)</td><td id="ethSpot">$---</td></tr>
-                    <tr><td>سولانا (SOL)</td><td id="solSpot">$---</td></tr>
-                    <tr><td>بينانس (BNB)</td><td id="bnbSpot">$---</td></tr>
-                    <tr><td>ريبل (XRP)</td><td id="xrpSpot">$---</td></tr>
-                    <tr><td>كاردانو (ADA)</td><td id="adaSpot">$---</td></tr>
-                    <tr><td>دوج كوين (DOGE)</td><td id="dogeSpot">$---</td></tr>
-                    <tr><td>ترون (TRX)</td><td id="trxSpot">$---</td></tr>
-                    <tr><td>دوت (DOT)</td><td id="dotSpot">$---</td></tr>
-                    <tr><td>لينك (LINK)</td><td id="linkSpot">$---</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    
-
-    <section id="fx" class="page-section">
-        <div class="page-container">
-            <h2>أسعار الصرف (مقابل الجنيه المصري)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>العملة</td>
-                        <td>السعر الرسمي (البنك)</td>
-                        <td>السوق الموازية (تطبيقي)</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>الدولار الأمريكي (USD)</td>
-                        <td id="fxSpot">---</td>
-                        <td id="blackUSD" class="highlight">---</td>
-                    </tr>
-                    <tr>
-                        <td>اليورو (EUR)</td>
-                        <td id="eurSpot">---</td>
-                        <td id="blackEUR">---</td>
-                    </tr>
-                    <tr>
-                        <td>الريال السعودي (SAR)</td>
-                        <td id="sarSpot">---</td>
-                        <td id="blackSAR">---</td>
-                    </tr>
-                    <tr>
-                        <td>الدرهم الإماراتي (AED)</td>
-                        <td id="aedSpot">---</td>
-                        <td id="blackAED">---</td>
-                    </tr>
-                    <tr>
-                        <td>الدينار الكويتي (KWD)</td>
-                        <td id="kwdSpot">---</td>
-                        <td id="blackKWD">---</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="font-size: 11px; color: #6b7280; margin-top: 10px;">* يتم حساب السوق الموازية بناءً على تسعير Binance P2P وكروس العملات.</p>
-        </div>
-    </section>
-
-
-    <section id="pairs" class="page-section">
-        <div class="page-container">
-            <h2>أهم 10 أزواج عملات عالمية</h2>
-            <table>
-                <thead>
-                    <tr><td>الزوج</td><td>السعر اللحظي</td></tr>
-                </thead>
-                <tbody id="pairsTableBody">
-                    <tr><td>EUR / USD</td><td id="eurusd">---</td></tr>
-                    <tr><td>GBP / USD</td><td id="gbpusd">---</td></tr>
-                    <tr><td>USD / JPY</td><td id="usdjpy">---</td></tr>
-                    <tr><td>USD / CHF</td><td id="usdchf">---</td></tr>
-                    <tr><td>AUD / USD</td><td id="audusd">---</td></tr>
-                    <tr><td>USD / CAD</td><td id="usdcad">---</td></tr>
-                    <tr><td>NZD / USD</td><td id="nzdusd">---</td></tr>
-                    <tr><td>EUR / GBP</td><td id="eurgbp">---</td></tr>
-                    <tr><td>EUR / JPY</td><td id="eurjpy">---</td></tr>
-                    <tr><td>GBP / JPY</td><td id="gbpjpy">---</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="stocks" class="page-section">
-        <div class="page-container">
-            <h2>مؤشرات الأسهم العالمية والمحلية</h2>
-            <table>
-                <thead>
-                    <tr><td>المؤشر</td><td>الدولة</td><td>القيمة</td></tr>
-                </thead>
-                <tbody>
-                    <tr><td>S&P 500</td><td>أمريكا</td><td id="sp500">---</td></tr>
-                    <tr><td>Nasdaq 100</td><td>أمريكا</td><td id="nasdaq">---</td></tr>
-                    <tr><td>FTSE 100</td><td>لندن</td><td id="ftse">---</td></tr>
-                    <tr><td>Nikkei 225</td><td>اليابان</td><td id="nikkei">---</td></tr>
-                    <tr><td>Shanghai</td><td>الصين</td><td id="shanghai">---</td></tr>
-                    <tr><td>TASI</td><td>السعودية</td><td id="tasi">---</td></tr>
-                    <tr><td>ADX / DFM</td><td>الإمارات</td><td id="uae_index">---</td></tr>
-                    <tr><td>EGX 30</td><td>مصر</td><td id="egx30">---</td></tr>
-                    <tr><td>EGX 70</td><td>مصر</td><td id="egx70">---</td></tr>
-                    <tr><td>EGX 100</td><td>مصر</td><td id="egx100">---</td></tr>
-                    <tr><td>EGX 33 Shariah</td><td>مصر</td><td id="egx33">---</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="fuel" class="page-section">
-        <div class="page-container">
-            <h2>أسعار الوقود في مصر (لتر)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>نوع الوقود</td>
-                        <td>السعر الرسمي</td>
-                    </tr>
-                </thead>
-                <tbody id="fuelTableBody">
-                    <tr>
-                        <td>بنزين 95</td>
-                        <td id="gas95">--- ج.م</td>
-                    </tr>
-                    <tr>
-                        <td>بنزين 92</td>
-                        <td id="gas92">--- ج.م</td>
-                    </tr>
-                    <tr>
-                        <td>بنزين 80</td>
-                        <td id="gas80">--- ج.م</td>
-                    </tr>
-                    <tr>
-                        <td>السولار</td>
-                        <td id="diesel">--- ج.م</td>
-                    </tr>
-                    <tr>
-                        <td>الكيروسين (الجاز)</td>
-                        <td id="kerosene">--- ج.م</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="font-size: 0.8rem; color: #888; margin-top: 10px; text-align: center;">
-                * الأسعار الموضحة هي الأسعار الرسمية المعلنة في جمهورية مصر العربية.
+    <!-- ==================== المحتوى الرئيسي ==================== -->
+    <main class="main-content" id="mainContent">
+      <!-- رأس الصفحة -->
+      <header class="page-header">
+        <div class="header-content">
+          <div class="header-left">
+            <h1 class="page-title" id="pageTitle">🏠 الرئيسية</h1>
+            <p class="page-subtitle" id="pageSubtitle">
+              نظرة عامة على جميع الأسعار والتوقعات
             </p>
+          </div>
+          <div class="header-right">
+            <span class="last-update" id="lastUpdate">
+              <i class="fas fa-clock"></i>
+              <span>آخر تحديث: --:--:--</span>
+            </span>
+            <button
+              class="refresh-btn"
+              id="refreshBtn"
+              aria-label="تحديث البيانات"
+            >
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
         </div>
-    </section>
+      </header>
 
-</main>
+      <!-- رسائل النظام -->
+      <div class="notification" id="notification" style="display: none"></div>
+      <div class="error-message" id="errorMessage" style="display: none"></div>
 
-<footer class="footer">
-    © جميع الحقوق محفوظة لدى AT Prices 2026
-</footer>
+      <!-- ==================== محتوى الصفحة الرئيسية ==================== -->
+      <section class="page-content" id="pageContent">
+        <!-- ترحيب -->
+        <div class="welcome-section">
+          <div class="welcome-text">
+            <h2 id="welcomeMessage">مرحباً بك في AT Financial 👋</h2>
+            <p id="welcomeDesc">
+              منصتك المتكاملة لمتابعة الأسعار المباشرة والتوقعات الاقتصادية
+            </p>
+          </div>
+            
+          </div>
+        </div>
 
-<script src="js/script.js"></script>
-</body>
+        <!-- بطاقات الأقسام -->
+        <div class="sections-grid" id="sectionsGrid">
+          <!-- بطاقة الأسعار -->
+          <div class="section-card" data-section="prices">
+            <div class="card-header">
+              <div class="card-icon prices">
+                <i class="fas fa-coins"></i>
+              </div>
+              <span class="card-badge">مباشر</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">الأسعار المباشرة</h3>
+              <p class="card-desc">
+                أسعار الذهب، الفضة، النفط، المعادن، العملات الرقمية، أسعار الصرف
+              </p>
+              <div class="card-preview" id="pricesPreview">
+                <div class="preview-item">
+                  <span class="preview-label">🥇 الذهب</span>
+                  <span class="preview-value" id="previewGold">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">💵 الدولار</span>
+                  <span class="preview-value" id="previewUSD">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">₿ بتكوين</span>
+                  <span class="preview-value" id="previewBTC">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🛢️ برنت</span>
+                  <span class="preview-value" id="previewOil">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="prices.html" class="card-link">
+                عرض التفاصيل
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- بطاقة الفائدة -->
+          <div class="section-card" data-section="rates">
+            <div class="card-header">
+              <div class="card-icon rates">
+                <i class="fas fa-percent"></i>
+              </div>
+              <span class="card-badge">اقتصاد</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">أسعار الفائدة</h3>
+              <p class="card-desc">أسعار الفائدة للبنوك المركزية حول العالم</p>
+              <div class="card-preview" id="ratesPreview">
+                <div class="preview-item">
+                  <span class="preview-label">🇺🇸 الولايات المتحدة</span>
+                  <span class="preview-value" id="previewUSRate">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇪🇬 مصر</span>
+                  <span class="preview-value" id="previewEGRate">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇸🇦 السعودية</span>
+                  <span class="preview-value" id="previewSARate">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇪🇺 منطقة اليورو</span>
+                  <span class="preview-value" id="previewEURate">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="rates.html" class="card-link">
+                عرض التفاصيل
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- بطاقة التضخم -->
+          <div class="section-card" data-section="inflation">
+            <div class="card-header">
+              <div class="card-icon inflation">
+                <i class="fas fa-chart-simple"></i>
+              </div>
+              <span class="card-badge">اقتصاد</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">معدلات التضخم</h3>
+              <p class="card-desc">
+                معدلات التضخم الحالية والسابقة للدول الكبرى
+              </p>
+              <div class="card-preview" id="inflationPreview">
+                <div class="preview-item">
+                  <span class="preview-label">🇺🇸 الولايات المتحدة</span>
+                  <span class="preview-value" id="previewUSInf">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇪🇬 مصر</span>
+                  <span class="preview-value" id="previewEGInf">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇸🇦 السعودية</span>
+                  <span class="preview-value" id="previewSAInf">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🇪🇺 منطقة اليورو</span>
+                  <span class="preview-value" id="previewEUInf">—</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="inflation.html" class="card-link">
+                عرض التفاصيل
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- بطاقة الأخبار -->
+          <div class="section-card" data-section="news">
+            <div class="card-header">
+              <div class="card-icon news">
+                <i class="fas fa-newspaper"></i>
+              </div>
+              <span class="card-badge">آخر</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">الأخبار الاقتصادية</h3>
+              <p class="card-desc">آخر الأخبار والتحديثات الاقتصادية لحظياً</p>
+              <div class="card-preview" id="newsPreview">
+                <div class="preview-news" id="previewNewsList">
+                  <div class="news-item-loading">
+                    <span class="loading-dot"></span>
+                    جاري تحميل الأخبار...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="news.html" class="card-link">
+                عرض التفاصيل
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- بطاقة التوقعات -->
+          <div class="section-card" data-section="forecast">
+            <div class="card-header">
+              <div class="card-icon forecast">
+                <i class="fas fa-robot"></i>
+              </div>
+              <span class="card-badge">AI</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">توقعات الذكاء الاصطناعي</h3>
+              <p class="card-desc">
+                تحليل السوق وتوقعات الأسعار باستخدام الذكاء الاصطناعي
+              </p>
+              <div class="card-preview" id="forecastPreview">
+                <div class="preview-item">
+                  <span class="preview-label">📊 مؤشر المشاعر</span>
+                  <span class="preview-value" id="previewSentiment">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">🥇 توقعات الذهب</span>
+                  <span class="preview-value" id="previewGoldOutlook">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">₿ توقعات الكريبتو</span>
+                  <span class="preview-value" id="previewCryptoOutlook">—</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">💡 التوصية</span>
+                  <span class="preview-value" id="previewRecommendation"
+                    >—</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a href="ai-forecast.html" class="card-link">
+                عرض التفاصيل
+                <i class="fas fa-arrow-left"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- قسم التحديثات السريعة -->
+        <div class="quick-updates">
+          <div class="quick-updates-header">
+            <h3><i class="fas fa-bolt"></i> تحديثات سريعة</h3>
+            <span class="live-badge">مباشر</span>
+          </div>
+          <div class="quick-updates-grid" id="quickUpdates">
+            <div class="update-item">
+              <span class="update-label">🔄 التحديث التلقائي</span>
+              <span class="update-value" id="autoUpdateStatus">نشط</span>
+            </div>
+            <div class="update-item">
+              <span class="update-label">📡 حالة الاتصال</span>
+              <span class="update-value online" id="connectionStatus"
+                >متصل</span
+              >
+            </div>
+            <div class="update-item">
+              <span class="update-label">📊 مصادر البيانات</span>
+              <span class="update-value" id="dataSources">5+ مصادر</span>
+            </div>
+            <div class="update-item">
+              <span class="update-label">⏱️ وقت التحديث</span>
+              <span class="update-value" id="updateInterval">30 ثانية</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== تذييل الصفحة ==================== -->
+      <footer class="page-footer">
+        <div class="footer-container">
+          <!-- العمود الأول: الموقع -->
+          <div class="footer-column">
+            <div class="footer-brand">
+              <span class="brand-icon">💎</span>
+              <span class="brand-name">AT Financial</span>
+            </div>
+            <p class="footer-desc">
+              منصة متخصصة في عرض الأسعار المباشرة للذهب، الفضة، العملات، النفط،
+              العملات الرقمية وأسعار الفائدة والتضخم.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="لينكد إن"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
+              <a href="#" aria-label="تيليجرام"
+                ><i class="fab fa-telegram-plane"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- العمود الثاني: روابط سريعة -->
+          <div class="footer-column">
+            <h4 class="footer-title">روابط سريعة</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="prices.html">الأسعار المباشرة</a></li>
+              <li><a href="rates.html">أسعار الفائدة</a></li>
+              <li><a href="inflation.html">معدلات التضخم</a></li>
+              <li><a href="news.html">الأخبار الاقتصادية</a></li>
+              <li><a href="ai-forecast.html">توقعات الذكاء الاصطناعي</a></li>
+            </ul>
+          </div>
+
+          <!-- العمود الثالث: الأقسام -->
+          <div class="footer-column">
+            <h4 class="footer-title">أقسام الأسعار</h4>
+            <ul class="footer-links">
+              <li><a href="prices.html#gold">الذهب</a></li>
+              <li><a href="prices.html#silver">الفضة</a></li>
+              <li><a href="prices.html#oil">النفط</a></li>
+              <li><a href="prices.html#crypto">العملات الرقمية</a></li>
+              <li><a href="prices.html#fx">أسعار الصرف</a></li>
+              <li><a href="prices.html#stocks">مؤشرات الأسهم</a></li>
+            </ul>
+          </div>
+
+          <!-- العمود الرابع: معلومات -->
+          <div class="footer-column">
+            <h4 class="footer-title">معلومات</h4>
+            <ul class="footer-links">
+              <li><a href="#">عن الموقع</a></li>
+              <li><a href="#">سياسة الخصوصية</a></li>
+              <li><a href="#">شروط الاستخدام</a></li>
+              <li><a href="#">اتصل بنا</a></li>
+              <li><a href="#">الدعم الفني</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            <span>© 2026 AT Financial. جميع الحقوق محفوظة.</span>
+          </div>
+          
+          <div class="footer-lang">
+            <span id="footerLang">🌐 العربية</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script type="module">
+      // استيراد الموديولات
+      import CONFIG from "./js/config.js";
+      import "./js/script.js";
+      import "./js/modules/sidebar.js";
+      import "./js/modules/api.js";
+      import { initSidebar } from "./js/modules/sidebar.js";
+      import "./js/pages/home.js";
+
+      // جعل CONFIG متاحاً عالمياً
+      window.CONFIG = CONFIG;
+
+      // تهيئة القائمة الجانبية
+      const sidebar = initSidebar("home");
+
+      // تحديث وقت آخر تحديث
+      function updateLastUpdateTime() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString("ar-EG", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        const lastUpdate = document.getElementById("lastUpdate");
+        if (lastUpdate) {
+          lastUpdate.innerHTML = `<i class="fas fa-clock"></i><span>آخر تحديث: ${timeStr}</span>`;
+        }
+      }
+
+      // تحديث الوقت كل ثانية
+      setInterval(updateLastUpdateTime, 1000);
+      updateLastUpdateTime();
+
+      // زر التحديث اليدوي
+      document
+        .getElementById("refreshBtn")
+        ?.addEventListener("click", function () {
+          const icon = this.querySelector("i");
+          icon.classList.add("fa-spin");
+          if (window.AT && window.AT.loadAppData) {
+            window.AT.loadAppData().then(() => {
+              setTimeout(() => icon.classList.remove("fa-spin"), 500);
+            });
+          } else {
+            setTimeout(() => icon.classList.remove("fa-spin"), 500);
+          }
+        });
+
+      // التبديل بين الثيمات
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+
+      // التحقق من الثيم المحفوظ
+      const savedTheme = localStorage.getItem("theme") || "light";
+      if (savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeIcon.className = "fas fa-sun";
+      }
+
+      themeToggle?.addEventListener("click", function () {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        if (isDark) {
+          document.documentElement.removeAttribute("data-theme");
+          localStorage.setItem("theme", "light");
+          themeIcon.className = "fas fa-moon";
+        } else {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("theme", "dark");
+          themeIcon.className = "fas fa-sun";
+        }
+      });
+
+      // اختيار اللغة
+      const langBtn = document.getElementById("langBtn");
+      const langDropdown = document.getElementById("langDropdown");
+      const currentLangLabel = document.getElementById("currentLangLabel");
+
+      langBtn?.addEventListener("click", function (e) {
+        e.stopPropagation();
+        langDropdown.classList.toggle("open");
+      });
+
+      document.addEventListener("click", function () {
+        langDropdown?.classList.remove("open");
+      });
+
+      document.querySelectorAll(".lang-option").forEach((option) => {
+        option.addEventListener("click", function () {
+          const lang = this.dataset.lang;
+          const label = this.textContent.trim();
+          const flag = this.querySelector(".lang-flag")?.textContent || "🌐";
+
+          // تحديث الزر
+          currentLangLabel.textContent = label;
+
+          // تحديث النشاط
+          document
+            .querySelectorAll(".lang-option")
+            .forEach((opt) => opt.classList.remove("active"));
+          this.classList.add("active");
+
+          // إغلاق القائمة
+          langDropdown.classList.remove("open");
+
+          // حفظ اللغة
+          localStorage.setItem("language", lang);
+
+          // تطبيق الترجمة (سيتم تنفيذها لاحقاً)
+          applyLanguage(lang);
+        });
+      });
+
+      // تطبيق اللغة المحفوظة
+      const savedLang = localStorage.getItem("language") || "ar";
+      const savedLangOption = document.querySelector(
+        `.lang-option[data-lang="${savedLang}"]`,
+      );
+      if (savedLangOption) {
+        savedLangOption.click();
+      }
+
+      // دالة تطبيق اللغة (مؤقتة)
+      function applyLanguage(lang) {
+        console.log(`🌐 Language changed to: ${lang}`);
+        // سيتم إضافة الترجمة الفعلية لاحقاً
+      }
+
+      // التحكم في القائمة الجانبية للشاشات الصغيرة
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarClose = document.getElementById("sidebarClose");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+      const sidebarEl = document.getElementById("sidebar");
+
+      function toggleSidebar() {
+        sidebarEl.classList.toggle("open");
+        sidebarOverlay.classList.toggle("active");
+        document.body.classList.toggle("sidebar-open");
+      }
+
+      sidebarToggle?.addEventListener("click", toggleSidebar);
+      sidebarClose?.addEventListener("click", toggleSidebar);
+      sidebarOverlay?.addEventListener("click", toggleSidebar);
+
+      // التحكم في قائمة الهاتف
+      const menuToggle = document.getElementById("menuToggle");
+      const navbarLinks = document.getElementById("navbarLinks");
+
+      menuToggle?.addEventListener("click", function () {
+        navbarLinks.classList.toggle("open");
+        this.classList.toggle("active");
+      });
+
+      console.log("✅ AT Financial Home page loaded successfully");
+    </script>
+
+    <!-- 3. استدعاء السكربتات كـ Modules إن كانت تحتوي على import/export -->
+    <script type="module" src="js/modules/sidebar.js"></script>
+    <script src="js/modules/navigation.js"></script>
+  </body>
 </html>
-
-

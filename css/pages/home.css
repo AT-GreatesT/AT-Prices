@@ -1,0 +1,219 @@
+/* ================= HERO SECTION ================= */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.hero-section h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.hero-section p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+.dashboard-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.section-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prices-color { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
+.rates-color { background: rgba(16, 185, 129, 0.15); color: var(--accent-rates); }
+.inflation-color { background: rgba(239, 68, 68, 0.15); color: var(--accent-inf); }
+.news-color { background: rgba(139, 92, 246, 0.15); color: var(--accent-news); }
+.forecast-color { background: rgba(6, 182, 212, 0.15); color: var(--accent-ai); }
+
+.card-title h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.card-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Action Arrow Button */
+.card-action-btn {
+  background-color: var(--arrow-btn-bg);
+  color: var(--arrow-btn-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.card-action-btn:hover {
+  transform: translateX(-4px);
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+[dir="ltr"] .card-action-btn .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* Card Body - Grid Layout for Data Items */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.data-item {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: background-color var(--transition-normal);
+}
+
+.item-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.item-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* News Specific Styling */
+.news-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.news-preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: var(--bg-main);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.news-preview-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.news-preview-time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* AI Forecast Specific Styling */
+.forecast-preview-box {
+  background-color: var(--bg-main);
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.forecast-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.badge {
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--accent-ai);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.time-stamp {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.forecast-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* RESPONSIVE HOME */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.7rem;
+  }
+  .preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

@@ -1,0 +1,592 @@
+/* ============================================
+   prices.css - تنسيقات صفحة الأسعار
+   ============================================ */
+
+/* ==================== الأقسام ==================== */
+.price-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-2xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.price-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================== رأس القسم ==================== */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 2px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.section-icon {
+    font-size: var(--font-size-xl);
+}
+
+.section-title h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.section-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ==================== محتوى القسم ==================== */
+.section-content {
+    padding: var(--spacing-lg);
+}
+
+/* ==================== شبكة الأسعار ==================== */
+.prices-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.price-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: right;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.price-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.price-item.main-price {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border-color: var(--primary-color);
+    grid-column: auto;
+}
+
+.price-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.price-value {
+    display: block;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.price-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.price-item.main-price {
+    display: block;
+}
+
+.active-section {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.price-sub {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-top: var(--spacing-xs);
+}
+
+/* ==================== ألوان خاصة بكل قسم ==================== */
+
+/* الذهب */
+.gold-section .section-header {
+    border-bottom-color: #f1c40f;
+}
+
+.gold-section .section-icon {
+    color: #f1c40f;
+}
+
+.gold-section .price-item.main-price .price-value {
+    color: #f1c40f;
+}
+
+/* الفضة */
+.silver-section .section-header {
+    border-bottom-color: #bdc3c7;
+}
+
+.silver-section .section-icon {
+    color: #bdc3c7;
+}
+
+.silver-section .price-item.main-price .price-value {
+    color: #95a5a6;
+}
+
+/* النفط */
+.oil-section .section-header {
+    border-bottom-color: #e67e22;
+}
+
+.oil-section .section-icon {
+    color: #e67e22;
+}
+
+.oil-section .price-item.main-price .price-value {
+    color: #e67e22;
+}
+
+/* المعادن */
+.metals-section .section-header {
+    border-bottom-color: #9b59b6;
+}
+
+.metals-section .section-icon {
+    color: #9b59b6;
+}
+
+.metals-section .price-item .price-value {
+    color: #9b59b6;
+}
+
+/* العملات الرقمية */
+.crypto-section .section-header {
+    border-bottom-color: #f7931a;
+}
+
+.crypto-section .section-icon {
+    color: #f7931a;
+}
+
+.crypto-section .price-item .price-value {
+    color: #f7931a;
+}
+
+/* أسعار الصرف */
+.fx-section .section-header {
+    border-bottom-color: #3498db;
+}
+
+.fx-section .section-icon {
+    color: #3498db;
+}
+
+.fx-section .price-item .price-value {
+    color: #3498db;
+}
+
+/* أزواج العملات */
+.pairs-section .section-header {
+    border-bottom-color: #1abc9c;
+}
+
+.pairs-section .section-icon {
+    color: #1abc9c;
+}
+
+.pairs-section .price-item .price-value {
+    color: #1abc9c;
+}
+
+/* مؤشرات الأسهم */
+.stocks-section .section-header {
+    border-bottom-color: #2ecc71;
+}
+
+.stocks-section .section-icon {
+    color: #2ecc71;
+}
+
+.stocks-section .price-item .price-value {
+    color: #2ecc71;
+}
+
+/* الوقود */
+.fuel-section .section-header {
+    border-bottom-color: #e74c3c;
+}
+
+.fuel-section .section-icon {
+    color: #e74c3c;
+}
+
+.fuel-section .price-item .price-value {
+    color: #e74c3c;
+}
+
+/* ==================== تحميل البيانات ==================== */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-md);
+    color: var(--text-muted);
+}
+
+.loading-spinner i {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-color);
+}
+
+/* ==================== حالة عدم وجود بيانات ==================== */
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-sm);
+    color: var(--text-muted);
+}
+
+.no-data i {
+    font-size: var(--font-size-2xl);
+    opacity: 0.5;
+}
+
+/* ==================== عرض موحد لعناصر الأقسام ==================== */
+.price-section .prices-grid,
+.price-section .crypto-grid,
+.price-section .fuel-grid,
+.price-section .gold-grid,
+.price-section .silver-grid,
+.price-section .metals-grid,
+.price-section .oil-grid,
+.price-section .fx-grid,
+.price-section .local-grid,
+.price-section .black-grid,
+.price-section .pairs-grid,
+.price-section .stock-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+}
+
+.price-section .price-item,
+.price-section .crypto-item,
+.price-section .fuel-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 64px;
+    text-align: right;
+}
+
+.price-section .price-item.main-price {
+    display: block;
+    min-height: 0;
+}
+
+.price-section .price-label,
+.price-section .price-value {
+    margin: 0;
+}
+
+/* ==================== تنسيقات إضافية للعرض ==================== */
+
+/* القيمة الرئيسية */
+.main-price .price-value {
+    font-size: var(--font-size-2xl);
+}
+
+/* قيمة العملة */
+.currency-value {
+    font-weight: 600;
+}
+
+/* تغيير اللون للقيم الإيجابية */
+.price-positive {
+    color: #2ecc71 !important;
+}
+
+.price-negative {
+    color: #e74c3c !important;
+}
+
+/* ==================== بطاقة الذهب المميزة ==================== */
+.gold-spot-card {
+    background: linear-gradient(135deg, #f1c40f20, #f1c40f08);
+    border: 2px solid #f1c40f;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.gold-spot-card .price-value {
+    font-size: var(--font-size-2xl);
+    color: #f1c40f;
+}
+
+/* ==================== شبكة خاصة للعملات الرقمية ==================== */
+.crypto-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.crypto-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.crypto-item:hover {
+    border-color: #f7931a;
+    transform: translateY(-2px);
+}
+
+.crypto-item .price-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.crypto-item .price-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #f7931a;
+}
+
+/* ==================== شبكة خاصة للوقود ==================== */
+.fuel-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.fuel-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.fuel-item:hover {
+    border-color: #e74c3c;
+    transform: translateY(-2px);
+}
+
+.fuel-item .price-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* ==================== الثيم الداكن ==================== */
+[data-theme="dark"] .price-section {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .price-item {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .price-item:hover {
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .section-header {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .gold-spot-card {
+    background: linear-gradient(135deg, #f1c40f15, #f1c40f05);
+}
+
+/* ==================== الوسائط (Responsive) ==================== */
+
+/* شاشات كبيرة */
+@media (max-width: 1200px) {
+    .prices-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .price-item.main-price {
+        grid-column: span 1;
+    }
+}
+
+/* شاشات متوسطة */
+@media (max-width: 992px) {
+    .prices-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    
+    .section-content {
+        padding: var(--spacing-md);
+    }
+}
+
+/* شاشات صغيرة */
+@media (max-width: 768px) {
+    .prices-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    .price-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .price-value {
+        font-size: var(--font-size-lg);
+    }
+    
+    .main-price .price-value {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .section-title h2 {
+        font-size: var(--font-size-md);
+    }
+    
+    .crypto-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .fuel-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+    .prices-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .price-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .price-label {
+        font-size: var(--font-size-xs);
+    }
+    
+    .price-value {
+        font-size: var(--font-size-md);
+    }
+    
+    .main-price .price-value {
+        font-size: var(--font-size-lg);
+    }
+    
+    .crypto-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .fuel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .section-content {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ==================== حالة التحميل ==================== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ==================== التمرير السلس ==================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+/* ==================== إضاءة القسم النشط ==================== */
+.price-section:target {
+    animation: highlightSection 1s ease;
+}
+
+@keyframes highlightSection {
+    0%, 100% {
+        box-shadow: var(--shadow-sm);
+    }
+    50% {
+        box-shadow: 0 0 0 4px var(--primary-color), var(--shadow-lg);
+    }
+}
+
+/* ==================== بطاقات مقسمة ==================== */
+.price-card-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.price-card-group .price-item {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+/* ==================== تنسيق الأيقونات ==================== */
+.price-icon {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+/* ==================== حالة عدم الاتصال ==================== */
+.offline-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: #e74c3c;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-sm);
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.offline-indicator i {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+
