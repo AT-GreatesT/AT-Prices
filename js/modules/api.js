@@ -18,13 +18,44 @@ function parseJSONField(value, fallback) {
 }
 
 function normalizeMarketData(data) {
-    if (!data || typeof data !== 'object') return {};
+    if (!data || typeof data !== 'object') {
+        return {};
+    }
+
+    // بعض الـ APIs ترجع البيانات داخل data
+    const source =
+        data.data &&
+        typeof data.data === 'object' &&
+        !Array.isArray(data.data)
+            ? data.data
+            : data;
+
     return {
-        ...data,
-        ratesData: parseJSONField(data.ratesData, {}),
-        inflationData: parseJSONField(data.inflationData, {}),
-        newsData: parseJSONField(data.newsData, []),
-        forecastData: parseJSONField(data.forecastData, {})
+        ...source,
+
+        ratesData: parseJSONField(
+            source.ratesData,
+            {}
+        ),
+
+        inflationData: parseJSONField(
+            source.inflationData,
+            {}
+        ),
+
+        newsData: parseJSONField(
+            source.newsData ??
+            source.news ??
+            source.articles ??
+            source.results ??
+            [],
+            []
+        ),
+
+        forecastData: parseJSONField(
+            source.forecastData,
+            {}
+        )
     };
 }
 

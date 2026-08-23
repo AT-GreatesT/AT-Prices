@@ -329,47 +329,14 @@
     <script type="module">
       import CONFIG from "./js/config.js";
       import "./js/script.js";
-      import "./js/modules/sidebar.js";
-      import "./js/modules/api.js";
       import { initSidebar } from "./js/modules/sidebar.js";
       import "./js/pages/news.js";
 
       window.CONFIG = CONFIG;
 
-      // تهيئة القائمة الجانبية
       const sidebar = initSidebar("news");
 
-      // تحديث وقت آخر تحديث
-      function updateLastUpdateTime() {
-        const now = new Date();
-        const timeStr = now.toLocaleTimeString("ar-EG", {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        });
-        const lastUpdate = document.getElementById("lastUpdate");
-        if (lastUpdate) {
-          lastUpdate.innerHTML = `<i class="fas fa-clock"></i><span>آخر تحديث: ${timeStr}</span>`;
-        }
-      }
-
-      setInterval(updateLastUpdateTime, 1000);
-      updateLastUpdateTime();
-
-      // زر التحديث
-      document
-        .getElementById("refreshBtn")
-        ?.addEventListener("click", function () {
-          const icon = this.querySelector("i");
-          icon.classList.add("fa-spin");
-          if (window.NewsPage && window.NewsPage.loadNewsData) {
-            window.NewsPage.loadNewsData(true).then(() => {
-              setTimeout(() => icon.classList.remove("fa-spin"), 500);
-            });
-          } else {
-            setTimeout(() => icon.classList.remove("fa-spin"), 500);
-          }
-        });
+      
 
       // التبديل بين الثيمات
       const themeToggle = document.getElementById("themeToggle");

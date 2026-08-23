@@ -1,140 +1,818 @@
+/* =========================================================
+   NEWS DETAIL PAGE
+   AT Financial
+========================================================= */
+
 .news-detail-page {
     min-height: 100vh;
+    background: var(--bg-color, #f1f5f9);
 }
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
 
 .detail-back-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    color: var(--primary-color);
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    color: #2563eb;
+    background: #ffffff;
+
+    border: 1px solid #dbe3ee;
+    border-radius: 10px;
+
     text-decoration: none;
     font-weight: 700;
+
+    transition: all 0.2s ease;
 }
+
+.detail-back-link:hover {
+    color: #1d4ed8;
+    background: #eff6ff;
+    border-color: #93c5fd;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
 
 .news-detail-card {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: clamp(1.25rem, 4vw, 3rem);
-    background: #81a3eb;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    width: min(100%, 900px);
+
+    margin: 30px auto;
+
+    padding: clamp(20px, 4vw, 42px);
+
+    /* مهم: لون مختلف عن خلفية الصفحة */
+    background: #ffffff;
+
+    border: 1px solid #dbe3ee;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.08);
+
+    overflow: hidden;
 }
 
+
+/* =========================================================
+   META
+========================================================= */
 
 .news-detail-card .detail-meta {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
-    gap: var(--spacing-md);
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
 }
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.news-detail-card .news-category {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 6px 13px;
+
+    border-radius: 999px;
+
+    background: #e8f0ff;
+
+    color: #1d4ed8;
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.detail-image-wrapper {
+    width: 100%;
+
+    margin: 0 0 28px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #e2e8f0;
+
+    aspect-ratio: 16 / 9;
+}
+
 
 .detail-image {
     display: block;
+
     width: 100%;
-    max-height: 420px;
-    margin: var(--spacing-lg) 0;
+    height: 100%;
+
     object-fit: cover;
-    border-radius: var(--radius-md);
+
+    border-radius: 16px;
+
+    transition: transform 0.4s ease;
 }
 
-.detail-date {
-    display: block;
-    margin-top: var(--spacing-sm);
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
+.detail-image-wrapper:hover .detail-image {
+    transform: scale(1.02);
 }
 
-.article-text {
-    color: var(--text-secondary);
-    line-height: 2;
-    white-space: normal;
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+========================================================= */
+
+.detail-image-placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #94a3b8;
+
+    font-size: 3rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e2e8f0,
+            #f8fafc
+        );
 }
 
-.news-detail-card h2 {
-    margin: var(--spacing-xl) 0 var(--spacing-md);
-    color: var(--text-primary);
-    font-size: clamp(1.4rem, 3vw, 2.1rem);
-    line-height: 1.7;
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.news-detail-card .detail-title {
+    margin: 0 0 20px;
+
+    color: #0f172a;
+
+    font-size: clamp(
+        1.55rem,
+        3.2vw,
+        2.35rem
+    );
+
+    font-weight: 800;
+
+    line-height: 1.65;
+
+    letter-spacing: -0.3px;
 }
 
-.detail-content {
-    margin: var(--spacing-xl) 0;
-    padding: var(--spacing-lg);
-    border: 1px solid var(--border-color);
-    border-right: 4px solid var(--primary-color);
-    border-radius: var(--radius-md);
-    background: #f3f6fa;
-}
 
-.detail-content h3 {
-    margin: 0 0 var(--spacing-sm);
-    color: var(--text-primary);
-    font-size: var(--font-size-md);
-}
-
-.detail-content p {
-    margin: 0;
-    color: var(--text-secondary);
-    line-height: 2;
-}
+/* =========================================================
+   SOURCE
+========================================================= */
 
 .detail-source {
     display: inline-flex;
+
     align-items: center;
-    gap: var(--spacing-sm);
-    color: var(--text-secondary);
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    color: #475569;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+}
+
+.detail-source i {
+    color: #2563eb;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.detail-date {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.detail-description {
+    margin-top: 24px;
+
+    padding: 18px 20px;
+
+    /*
+       لون مختلف عن البطاقة
+    */
+    background: #eef4ff;
+
+    border: 1px solid #cbdcfb;
+
+    border-right: 4px solid #2563eb;
+
+    border-radius: 10px;
+
+    color: #334155;
+
+    font-size: 1rem;
+
+    line-height: 2;
+
     font-weight: 600;
 }
 
-.detail-source-link {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    color: var(--primary-color);
-    text-decoration: none;
-    background: #eef4ff;
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.detail-content {
+    margin: 30px 0;
+
+    padding: clamp(
+        18px,
+        3vw,
+        28px
+    );
+
+    /*
+       لون واضح ومختلف عن البطاقة والوصف
+    */
+    background: #f8fafc;
+
+    border: 1px solid #dbe3ee;
+
+    border-right: 4px solid #2563eb;
+
+    border-radius: 14px;
 }
 
-.detail-source-link:hover {
-    border-color: var(--primary-color);
+
+/* =========================================================
+   ARTICLE TEXT
+========================================================= */
+
+.article-text {
+    color: #1e293b;
+
+    font-size: 1.05rem;
+
+    line-height: 2.15;
+
+    text-align: right;
+
+    word-break: normal;
+
+    overflow-wrap: anywhere;
 }
+
+
+/* =========================================================
+   ARTICLE PARAGRAPHS
+========================================================= */
+
+.article-text p {
+    margin: 0 0 18px;
+}
+
+.article-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   EMPTY ARTICLE
+========================================================= */
+
+.article-empty {
+    padding: 25px 10px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+.article-empty i {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #94a3b8;
+
+    font-size: 2.5rem;
+}
+
+.article-empty p {
+    margin: 7px 0;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+========================================================= */
 
 .detail-disclaimer {
-    margin: var(--spacing-xl) 0;
-    padding: var(--spacing-md);
-    border-right: 4px solid var(--primary-color);
-    background: #fff8e6;
-    color: var(--text-secondary);
+    margin: 28px 0;
+
+    padding: 16px 18px;
+
+    background: #fffbeb;
+
+    border: 1px solid #fde68a;
+
+    border-right: 4px solid #f59e0b;
+
+    border-radius: 10px;
+
+    color: #78350f;
+
+    font-size: 0.9rem;
+
     line-height: 1.9;
 }
 
+
+/* =========================================================
+   SOURCE BUTTON
+========================================================= */
+
+.detail-source-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    min-height: 54px;
+
+    padding: 14px 20px;
+
+    margin-top: 20px;
+
+    /*
+       لون واضح جدًا للرابط
+    */
+    background: #2563eb;
+
+    color: #ffffff !important;
+
+    border: 1px solid #1d4ed8;
+
+    border-radius: 12px;
+
+    text-decoration: none !important;
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 16px rgba(37, 99, 235, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+.detail-source-button:hover {
+    background: #1d4ed8;
+
+    color: #ffffff !important;
+
+    border-color: #1e40af;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(37, 99, 235, 0.30);
+}
+
+.detail-source-button:visited {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.news-detail-card .loading-spinner {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
+
+    gap: 15px;
+
+    color: #64748b;
+
+    text-align: center;
+}
+
+.news-detail-card .loading-spinner i {
+    color: #2563eb;
+
+    font-size: 2rem;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+========================================================= */
+
+.news-detail-card .news-empty {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 300px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+.news-detail-card .news-empty i {
+    margin-bottom: 15px;
+
+    color: #2563eb;
+
+    font-size: 2.5rem;
+}
+
+.news-detail-card .news-empty p {
+    margin: 10px 0 20px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] .news-detail-page {
+    background: #0f172a;
+}
+
+
+/* بطاقة الخبر */
+
 [data-theme="dark"] .news-detail-card {
     background: #172033;
+
+    border-color: #334155;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.30);
 }
+
+
+/* زر العودة */
+
+[data-theme="dark"] .detail-back-link {
+    color: #93c5fd;
+
+    background: #172033;
+
+    border-color: #334155;
+}
+
+[data-theme="dark"] .detail-back-link:hover {
+    color: #bfdbfe;
+
+    background: #1e293b;
+
+    border-color: #60a5fa;
+}
+
+
+/* التصنيف */
+
+[data-theme="dark"] .news-detail-card .news-category {
+    background: #1e3a5f;
+
+    color: #93c5fd;
+}
+
+
+/* العنوان */
+
+[data-theme="dark"] .news-detail-card .detail-title {
+    color: #f8fafc;
+}
+
+
+/* المصدر */
+
+[data-theme="dark"] .detail-source {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .detail-source i {
+    color: #60a5fa;
+}
+
+
+/* التاريخ */
+
+[data-theme="dark"] .detail-date {
+    color: #94a3b8;
+}
+
+
+/* الوصف */
+
+[data-theme="dark"] .detail-description {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    border-right-color: #60a5fa;
+
+    color: #dbeafe;
+}
+
+
+/* محتوى المقال */
 
 [data-theme="dark"] .detail-content {
-    background: #202b40;
+    background: #111827;
+
+    border-color: #334155;
+
+    border-right-color: #60a5fa;
 }
 
-[data-theme="dark"] .detail-source-link {
-    background: #1d3155;
+
+/* النص */
+
+[data-theme="dark"] .article-text {
+    color: #e2e8f0;
 }
+
+
+/* Placeholder */
+
+[data-theme="dark"] .detail-image-placeholder {
+    background:
+        linear-gradient(
+            135deg,
+            #1e293b,
+            #26344d
+        );
+
+    color: #64748b;
+}
+
+
+/* رسالة عدم وجود المقال */
+
+[data-theme="dark"] .article-empty {
+    color: #94a3b8;
+}
+
+
+/* التنبيه */
 
 [data-theme="dark"] .detail-disclaimer {
     background: #3a321f;
+
+    border-color: #66572f;
+
+    border-right-color: #f59e0b;
+
+    color: #fde68a;
 }
 
-.detail-source-button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-sm);
-    background: var(--primary-color);
-    color: #c1e033;
-    text-decoration: none;
-    font-weight: 700;
+
+/* زر المصدر */
+
+[data-theme="dark"] .detail-source-button {
+    background: #3b82f6;
+
+    color: #ffffff !important;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 6px 18px rgba(59, 130, 246, 0.25);
 }
+
+[data-theme="dark"] .detail-source-button:hover {
+    background: #2563eb;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .news-detail-card {
+        width: calc(100% - 24px);
+
+        margin: 20px auto;
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+
+    .news-detail-card .detail-meta {
+        flex-wrap: wrap;
+
+        margin-bottom: 18px;
+    }
+
+
+    .detail-image-wrapper {
+        aspect-ratio: 16 / 10;
+
+        border-radius: 12px;
+    }
+
+
+    .news-detail-card .detail-title {
+        font-size: 1.5rem;
+
+        line-height: 1.7;
+    }
+
+
+    .detail-content {
+        margin: 24px 0;
+
+        padding: 18px;
+    }
+
+
+    .article-text {
+        font-size: 1rem;
+
+        line-height: 2.05;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .news-detail-card {
+        width: calc(100% - 16px);
+
+        margin: 12px auto;
+
+        padding: 16px;
+
+        border-radius: 13px;
+    }
+
+
+    .news-detail-card .detail-meta {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .news-detail-card .detail-title {
+        margin-bottom: 15px;
+
+        font-size: 1.3rem;
+
+        line-height: 1.75;
+    }
+
+
+    .detail-image-wrapper {
+        aspect-ratio: 4 / 3;
+
+        margin-bottom: 20px;
+
+        border-radius: 11px;
+    }
+
+
+    .detail-source {
+        font-size: 0.85rem;
+
+        flex-wrap: wrap;
+    }
+
+
+    .detail-description {
+        margin-top: 18px;
+
+        padding: 14px;
+
+        font-size: 0.92rem;
+
+        line-height: 1.9;
+    }
+
+
+    .detail-content {
+        margin: 20px 0;
+
+        padding: 15px;
+
+        border-right-width: 3px;
+    }
+
+
+    .article-text {
+        font-size: 0.95rem;
+
+        line-height: 2;
+    }
+
+
+    .detail-disclaimer {
+        margin: 20px 0;
+
+        padding: 13px;
+
+        font-size: 0.82rem;
+
+        line-height: 1.8;
+    }
+
+
+    .detail-source-button {
+        min-height: 50px;
+
+        padding: 11px 15px;
+
+        font-size: 0.88rem;
+    }
+
+}
+
+
